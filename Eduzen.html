@@ -1,0 +1,2999 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Eduzen — Global Academic Enrichment</title>
+    <meta
+      name="description"
+      content="Eduzen offers expert private tutoring in English, Science, Mathematics & Hindi for classes V–X across IB, IGCSE, and CBSE curricula."
+    />
+    <link rel="icon" href="eduzen_logo.png" type="image/png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=Manrope:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* ─── Design Tokens ─── */
+      :root {
+        --navy: #18324f;
+        --navy-d: #0f2238;
+        --navy-ink: #122a44;
+        --copper: #b87333;
+        --copper-l: #cf8c4a;
+        --copper-d: #8a5223;
+        --ivory: #f7f3ec;
+        --cream: #ede5d6;
+        --paper: #fbf8f1;
+        --bg: #faf8f3;
+        --bg-alt: #f0ebe0;
+        --text: #1e2a3a;
+        --text-m: #5a6473;
+        --text-l: #8c95a3;
+        --line: rgba(24, 50, 79, 0.12);
+        --line-d: rgba(255, 255, 255, 0.14);
+        --white: #ffffff;
+        --radius: 6px;
+        --radius-s: 3px;
+        --shadow:
+          0 1px 2px rgba(24, 50, 79, 0.04), 0 8px 28px rgba(24, 50, 79, 0.06);
+        --shadow-h:
+          0 4px 12px rgba(24, 50, 79, 0.06), 0 18px 48px rgba(24, 50, 79, 0.1);
+        --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        --max-w: 1240px;
+
+        --font-serif: "Playfair Display", Georgia, "Times New Roman", serif;
+        --font-sans: "Manrope", system-ui, -apple-system, sans-serif;
+      }
+
+      /* ─── Reset & Base ─── */
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        scroll-behavior: smooth;
+        -webkit-text-size-adjust: 100%;
+      }
+
+      body {
+        font-family: var(--font-sans);
+        color: var(--text);
+        background: var(--bg);
+        line-height: 1.65;
+        font-size: 16px;
+        -webkit-font-smoothing: antialiased;
+        letter-spacing: -0.005em;
+        overflow-x: hidden;
+      }
+
+      img {
+        max-width: 100%;
+        display: block;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      em {
+        font-style: italic;
+      }
+
+      .container {
+        max-width: var(--max-w);
+        margin: 0 auto;
+        padding: 0 32px;
+      }
+
+      /* ─── Typography ─── */
+      h1,
+      h2,
+      h3,
+      .serif {
+        font-family: var(--font-serif);
+        color: var(--navy);
+        line-height: 1.15;
+        letter-spacing: -0.015em;
+        font-weight: 600;
+      }
+
+      .accent-serif {
+        font-family: var(--font-serif);
+        font-style: italic;
+        color: var(--copper);
+        font-weight: 500;
+      }
+
+      .section-head {
+        max-width: 720px;
+        margin: 0 auto 64px;
+        text-align: center;
+      }
+
+      .section-kicker {
+        display: inline-block;
+        font-size: 0.72rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        color: var(--copper);
+        margin-bottom: 18px;
+        position: relative;
+        padding: 0 14px;
+      }
+      .section-kicker::before,
+      .section-kicker::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        width: 28px;
+        height: 1px;
+        background: currentColor;
+        opacity: 0.5;
+      }
+      .section-kicker::before {
+        right: 100%;
+      }
+      .section-kicker::after {
+        left: 100%;
+      }
+      .section-kicker.on-dark {
+        color: var(--copper-l);
+      }
+
+      .section-title {
+        font-size: clamp(2rem, 4.2vw, 3.2rem);
+        margin-bottom: 18px;
+      }
+      .section-title.on-dark {
+        color: var(--ivory);
+      }
+
+      .section-lede {
+        color: var(--text-m);
+        font-size: 1.05rem;
+        max-width: 580px;
+        margin: 0 auto;
+      }
+
+      /* ─── Buttons ─── */
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        padding: 15px 30px;
+        border-radius: 2px;
+        font-family: var(--font-sans);
+        font-weight: 600;
+        font-size: 0.92rem;
+        letter-spacing: 0.02em;
+        transition: var(--transition);
+        cursor: pointer;
+        border: 1.5px solid transparent;
+        text-align: center;
+      }
+
+      .btn svg {
+        width: 18px;
+        height: 18px;
+        flex-shrink: 0;
+        transition: var(--transition);
+      }
+
+      .btn-primary {
+        background: var(--copper);
+        color: var(--white);
+        border-color: var(--copper);
+      }
+      .btn-primary:hover {
+        background: var(--copper-d);
+        border-color: var(--copper-d);
+        transform: translateY(-2px);
+        box-shadow: 0 10px 24px rgba(184, 115, 51, 0.28);
+      }
+      .btn-primary:hover svg {
+        transform: translateX(3px);
+      }
+
+      .btn-outline {
+        border-color: var(--navy);
+        color: var(--navy);
+        background: transparent;
+      }
+      .btn-outline:hover {
+        background: var(--navy);
+        color: var(--white);
+        transform: translateY(-2px);
+      }
+
+      .btn-full {
+        width: 100%;
+      }
+
+      .btn-whatsapp {
+        background: #128c4a;
+        color: var(--white);
+        border-color: #128c4a;
+      }
+      .btn-whatsapp:hover {
+        background: #0b6f3a;
+        border-color: #0b6f3a;
+        transform: translateY(-2px);
+        box-shadow: 0 10px 24px rgba(18, 140, 74, 0.28);
+      }
+
+      .btn-email {
+        background: transparent;
+        color: var(--ivory);
+        border-color: rgba(255, 255, 255, 0.32);
+      }
+      .btn-email:hover {
+        background: var(--ivory);
+        color: var(--navy);
+        border-color: var(--ivory);
+      }
+
+      /* ─── Topbar ─── */
+      .topbar {
+        background: var(--navy-d);
+        color: var(--ivory);
+        font-size: 0.76rem;
+        letter-spacing: 0.04em;
+        padding: 9px 0;
+        text-align: center;
+      }
+      .topbar-inner {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 14px;
+        flex-wrap: wrap;
+      }
+      .topbar-dot {
+        display: inline-block;
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: var(--copper-l);
+        box-shadow: 0 0 0 4px rgba(207, 140, 74, 0.18);
+        animation: pulse 2.4s ease-in-out infinite;
+      }
+      @keyframes pulse {
+        50% {
+          box-shadow: 0 0 0 7px rgba(207, 140, 74, 0.05);
+        }
+      }
+      .topbar-sep {
+        opacity: 0.4;
+      }
+
+      /* ─── Navbar ─── */
+      .navbar {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        padding: 16px 0;
+        background: rgba(250, 248, 243, 0.78);
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+        border-bottom: 1px solid transparent;
+        transition: var(--transition);
+      }
+      .navbar.scrolled {
+        background: rgba(250, 248, 243, 0.94);
+        border-bottom-color: var(--line);
+        padding: 12px 0;
+      }
+      .nav-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+      }
+      .nav-logo {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        color: var(--navy);
+      }
+      .nav-logo img {
+        width: 46px;
+        height: 46px;
+        border-radius: 50%;
+        border: 1px solid var(--line);
+      }
+      .nav-logo-text {
+        display: flex;
+        flex-direction: column;
+        line-height: 1.05;
+      }
+      .nav-logo-name {
+        font-family: var(--font-serif);
+        font-weight: 700;
+        font-size: 1.4rem;
+        color: var(--navy);
+      }
+      .nav-logo-tag {
+        font-size: 0.68rem;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        color: var(--copper);
+        margin-top: 2px;
+      }
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 36px;
+        list-style: none;
+      }
+      .nav-links a {
+        font-size: 0.88rem;
+        font-weight: 500;
+        color: var(--text);
+        transition: var(--transition);
+        position: relative;
+      }
+      .nav-links a:hover {
+        color: var(--copper);
+      }
+      .nav-links a::after {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 0;
+        height: 1px;
+        background: var(--copper);
+        transition: var(--transition);
+      }
+      .nav-links a:hover::after {
+        width: 100%;
+      }
+
+      .nav-cta {
+        background: var(--navy);
+        color: var(--ivory) !important;
+        padding: 11px 22px;
+        border-radius: 2px;
+      }
+      .nav-cta:hover {
+        background: var(--copper) !important;
+        color: var(--white) !important;
+      }
+      .nav-cta::after {
+        display: none !important;
+      }
+
+      .nav-toggle {
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 4px;
+      }
+      .nav-toggle span {
+        width: 26px;
+        height: 1.5px;
+        background: var(--navy);
+        transition: var(--transition);
+      }
+      .nav-toggle.active span:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+      }
+      .nav-toggle.active span:nth-child(2) {
+        opacity: 0;
+      }
+      .nav-toggle.active span:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+      }
+
+      /* ─── Hero ─── */
+      .hero {
+        position: relative;
+        padding: 80px 0 0;
+        background:
+          radial-gradient(
+            ellipse at 100% 0%,
+            rgba(184, 115, 51, 0.08) 0%,
+            transparent 50%
+          ),
+          radial-gradient(
+            ellipse at 0% 100%,
+            rgba(24, 50, 79, 0.06) 0%,
+            transparent 55%
+          ),
+          var(--bg);
+        overflow: hidden;
+      }
+
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 1.05fr 1fr;
+        gap: 70px;
+        align-items: center;
+        padding-bottom: 60px;
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 14px;
+        font-size: 0.74rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        color: var(--copper);
+        margin-bottom: 28px;
+      }
+      .eyebrow-rule {
+        display: inline-block;
+        width: 40px;
+        height: 1px;
+        background: var(--copper);
+        opacity: 0.6;
+      }
+
+      .hero h1 {
+        font-size: clamp(2.4rem, 5.2vw, 4.4rem);
+        margin-bottom: 28px;
+        line-height: 1.05;
+        letter-spacing: -0.02em;
+      }
+
+      .hero-sub {
+        font-size: 1.08rem;
+        color: var(--text-m);
+        max-width: 540px;
+        margin-bottom: 38px;
+        line-height: 1.75;
+      }
+      .hero-sub strong {
+        color: var(--navy);
+        font-weight: 600;
+      }
+
+      .hero-actions {
+        display: flex;
+        gap: 14px;
+        flex-wrap: wrap;
+        margin-bottom: 56px;
+      }
+
+      .hero-meta {
+        display: grid;
+        grid-template-columns: repeat(4, auto);
+        gap: 36px;
+        padding-top: 32px;
+        border-top: 1px solid var(--line);
+      }
+      .meta-item {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+      }
+      .meta-num {
+        font-family: var(--font-serif);
+        font-size: 2.2rem;
+        font-weight: 600;
+        color: var(--navy);
+        line-height: 1;
+        display: flex;
+        align-items: baseline;
+      }
+      .meta-plus {
+        font-size: 1.2rem;
+        color: var(--copper);
+        margin-left: 2px;
+      }
+      .meta-label {
+        font-size: 0.74rem;
+        color: var(--text-m);
+        letter-spacing: 0.03em;
+        line-height: 1.35;
+      }
+      .meta-label strong {
+        color: var(--navy);
+        font-weight: 600;
+      }
+
+      .meta-award {
+        flex-direction: row;
+        align-items: center;
+        gap: 10px;
+        padding-left: 24px;
+        border-left: 1px solid var(--line);
+      }
+      .meta-award svg {
+        width: 32px;
+        height: 32px;
+        color: var(--copper);
+        flex-shrink: 0;
+      }
+
+      /* Hero feature card */
+      .hero-feature {
+        position: relative;
+      }
+
+      .hero-feature-card {
+        position: relative;
+        background: var(--white);
+        padding: 22px 22px 28px;
+        box-shadow: var(--shadow-h);
+        transform: rotate(1.5deg);
+        transition: transform 0.5s ease;
+        border: 1px solid var(--line);
+      }
+      .hero-feature-card:hover {
+        transform: rotate(0deg);
+      }
+
+      .feature-photo {
+        aspect-ratio: 4/5;
+        background: var(--cream);
+        overflow: hidden;
+        margin-bottom: 20px;
+        position: relative;
+      }
+
+      .feature-caption {
+        padding: 0 4px;
+      }
+      .caption-label {
+        display: block;
+        font-size: 0.68rem;
+        text-transform: uppercase;
+        letter-spacing: 2.5px;
+        color: var(--copper);
+        margin-bottom: 8px;
+        font-weight: 600;
+      }
+      .feature-caption p {
+        font-family: var(--font-serif);
+        font-size: 1.04rem;
+        line-height: 1.45;
+        color: var(--navy);
+        font-style: italic;
+        margin-bottom: 10px;
+      }
+      .caption-byline {
+        font-size: 0.78rem;
+        color: var(--text-m);
+        letter-spacing: 0.04em;
+      }
+
+      .hero-watermark {
+        position: absolute;
+        bottom: -40px;
+        right: -20px;
+        width: 130px;
+        opacity: 0.07;
+        z-index: -1;
+        border-radius: 50%;
+      }
+
+      /* Marquee */
+      .hero-marquee {
+        border-top: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
+        background: var(--ivory);
+        padding: 18px 0;
+        overflow: hidden;
+      }
+      .marquee-track {
+        display: flex;
+        align-items: center;
+        gap: 28px;
+        white-space: nowrap;
+        animation: marquee 38s linear infinite;
+        font-family: var(--font-serif);
+        font-size: 1.1rem;
+        color: var(--navy);
+        font-style: italic;
+      }
+      .marquee-track span:nth-child(even) {
+        color: var(--copper);
+        opacity: 0.7;
+        font-style: normal;
+      }
+      @keyframes marquee {
+        from {
+          transform: translateX(0);
+        }
+        to {
+          transform: translateX(-50%);
+        }
+      }
+
+      /* Image placeholders */
+      .img-placeholder {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 14px;
+        background:
+          repeating-linear-gradient(
+            45deg,
+            rgba(24, 50, 79, 0.025) 0 12px,
+            transparent 12px 24px
+          ),
+          var(--cream);
+        color: var(--text-m);
+        font-size: 0.78rem;
+        text-align: center;
+        letter-spacing: 0.04em;
+        padding: 24px;
+        border: 1px dashed rgba(24, 50, 79, 0.18);
+      }
+      .img-placeholder svg {
+        width: 48px;
+        height: 48px;
+        color: var(--navy);
+        opacity: 0.35;
+      }
+      .img-placeholder em {
+        display: block;
+        font-size: 0.72rem;
+        color: var(--text-l);
+        margin-top: 2px;
+      }
+      .img-placeholder-large svg {
+        width: 72px;
+        height: 72px;
+      }
+      .img-placeholder-portrait {
+        aspect-ratio: 4/5;
+      }
+
+      /* ─── Subjects ─── */
+      .subjects {
+        padding: 120px 0 100px;
+      }
+
+      .subject-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0;
+        border-top: 1px solid var(--line);
+        border-left: 1px solid var(--line);
+        margin-bottom: 60px;
+      }
+
+      .subject-card {
+        padding: 44px 40px;
+        border-right: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
+        background: var(--bg);
+        transition: var(--transition);
+        position: relative;
+      }
+      .subject-card:hover {
+        background: var(--white);
+      }
+      .subject-card:hover .subject-num {
+        color: var(--copper);
+        transform: translateY(-2px);
+      }
+
+      .subject-head {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 16px;
+        margin-bottom: 18px;
+      }
+      .subject-num {
+        font-family: var(--font-serif);
+        font-size: 1.3rem;
+        color: var(--navy);
+        opacity: 0.3;
+        letter-spacing: 0.05em;
+        transition: var(--transition);
+      }
+      .subject-tag {
+        font-size: 0.68rem;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        color: var(--text-m);
+        font-weight: 600;
+      }
+
+      .subject-card h3 {
+        font-size: clamp(1.8rem, 3vw, 2.4rem);
+        margin-bottom: 14px;
+      }
+
+      .subject-card > p {
+        color: var(--text-m);
+        font-size: 0.98rem;
+        margin-bottom: 22px;
+        max-width: 440px;
+      }
+
+      .subject-bullets {
+        list-style: none;
+        margin-bottom: 28px;
+      }
+      .subject-bullets li {
+        position: relative;
+        padding-left: 20px;
+        margin-bottom: 8px;
+        font-size: 0.92rem;
+        color: var(--text);
+      }
+      .subject-bullets li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 11px;
+        width: 8px;
+        height: 1px;
+        background: var(--copper);
+      }
+
+      .subject-foot {
+        font-size: 0.74rem;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        color: var(--text-l);
+        padding-top: 18px;
+        border-top: 1px solid var(--line);
+        font-weight: 600;
+      }
+
+      .curricula-strip {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 14px;
+        flex-wrap: wrap;
+      }
+      .strip-label {
+        font-size: 0.72rem;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        color: var(--text-m);
+        margin-right: 8px;
+      }
+      .curricula-badge {
+        display: inline-block;
+        padding: 9px 22px;
+        font-size: 0.78rem;
+        font-weight: 700;
+        color: var(--navy);
+        background: var(--white);
+        border: 1px solid var(--line);
+        letter-spacing: 1.5px;
+        border-radius: 2px;
+      }
+
+      /* ─── Award Banner ─── */
+      .award-banner {
+        background: var(--navy);
+        color: var(--ivory);
+        padding: 100px 0;
+        position: relative;
+        overflow: hidden;
+      }
+      .award-banner::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(
+            ellipse at 0% 100%,
+            rgba(184, 115, 51, 0.15) 0%,
+            transparent 50%
+          ),
+          radial-gradient(
+            ellipse at 100% 0%,
+            rgba(184, 115, 51, 0.08) 0%,
+            transparent 60%
+          );
+        pointer-events: none;
+      }
+
+      .award-grid {
+        position: relative;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 80px;
+        align-items: center;
+      }
+
+      .award-photo {
+        position: relative;
+        aspect-ratio: 4/3;
+        background: var(--cream);
+        border: 6px solid var(--ivory);
+        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.35);
+        transform: rotate(-1.5deg);
+        transition: transform 0.5s ease;
+      }
+      .award-photo:hover {
+        transform: rotate(0);
+      }
+
+      .award-photo .img-placeholder {
+        background:
+          repeating-linear-gradient(
+            45deg,
+            rgba(24, 50, 79, 0.04) 0 12px,
+            transparent 12px 24px
+          ),
+          var(--cream);
+        border: none;
+        color: var(--navy);
+        opacity: 1;
+      }
+
+      .photo-tag {
+        position: absolute;
+        bottom: -16px;
+        right: 24px;
+        background: var(--copper);
+        color: var(--white);
+        font-size: 0.68rem;
+        text-transform: uppercase;
+        letter-spacing: 2.5px;
+        padding: 9px 18px;
+        font-weight: 700;
+        box-shadow: 0 10px 24px rgba(184, 115, 51, 0.4);
+      }
+
+      .award-text .section-title {
+        margin-bottom: 24px;
+      }
+      .award-text p {
+        color: rgba(247, 243, 236, 0.78);
+        font-size: 1.05rem;
+        line-height: 1.75;
+        margin-bottom: 18px;
+        max-width: 540px;
+      }
+      .award-text strong {
+        color: var(--ivory);
+      }
+
+      .award-signature {
+        margin-top: 32px;
+        padding-top: 24px;
+        border-top: 1px solid rgba(255, 255, 255, 0.14);
+      }
+      .sig-line {
+        font-family: var(--font-serif);
+        font-style: italic;
+        color: var(--copper-l);
+        font-size: 1.02rem;
+      }
+
+      /* ─── Environments / Gallery ─── */
+      .environments {
+        padding: 120px 0;
+        background: var(--ivory);
+      }
+
+      .env-gallery {
+        display: grid;
+        grid-template-columns: 1.4fr 1fr 1fr;
+        grid-template-rows: auto;
+        gap: 24px;
+        margin-bottom: 28px;
+      }
+
+      .env-card {
+        background: var(--white);
+        padding: 14px 14px 0;
+        box-shadow: var(--shadow);
+        transition: var(--transition);
+      }
+      .env-card:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-h);
+      }
+      .env-card .img-placeholder {
+        aspect-ratio: 4/3;
+      }
+      .env-card-tall .img-placeholder {
+        aspect-ratio: 3/4;
+      }
+
+      .env-card figcaption {
+        display: flex;
+        gap: 14px;
+        padding: 18px 6px 22px;
+      }
+      .fig-num {
+        font-family: var(--font-serif);
+        font-style: italic;
+        color: var(--copper);
+        font-size: 1.05rem;
+        flex-shrink: 0;
+      }
+      .fig-text {
+        font-size: 0.88rem;
+        color: var(--text-m);
+        line-height: 1.55;
+      }
+
+      /* ─── Why Us ─── */
+      .why-us {
+        padding: 120px 0;
+      }
+
+      .features-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0;
+        border-top: 1px solid var(--line);
+        border-left: 1px solid var(--line);
+      }
+
+      .feature {
+        position: relative;
+        padding: 44px 36px;
+        border-right: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
+        transition: var(--transition);
+        background: var(--bg);
+      }
+      .feature:hover {
+        background: var(--white);
+      }
+      .feature:hover .feature-icon {
+        color: var(--copper);
+        transform: translateY(-2px);
+      }
+
+      .feature-no {
+        position: absolute;
+        top: 22px;
+        right: 28px;
+        font-family: var(--font-serif);
+        font-style: italic;
+        font-size: 1rem;
+        color: var(--copper);
+        opacity: 0.55;
+      }
+
+      .feature-icon {
+        width: 42px;
+        height: 42px;
+        color: var(--navy);
+        margin-bottom: 24px;
+        transition: var(--transition);
+      }
+
+      .feature h4 {
+        font-family: var(--font-serif);
+        font-weight: 600;
+        font-size: 1.35rem;
+        color: var(--navy);
+        margin-bottom: 12px;
+        line-height: 1.25;
+      }
+
+      .feature p {
+        font-size: 0.92rem;
+        color: var(--text-m);
+        line-height: 1.7;
+      }
+      .feature p strong {
+        color: var(--navy);
+      }
+
+      /* ─── Educator ─── */
+      .educator {
+        padding: 120px 0;
+        background: var(--bg-alt);
+      }
+
+      .educator-grid {
+        display: grid;
+        grid-template-columns: 0.9fr 1.3fr;
+        gap: 80px;
+        align-items: start;
+      }
+
+      .educator-portrait {
+        position: sticky;
+        top: 120px;
+      }
+
+      .portrait-frame {
+        background: var(--white);
+        padding: 16px 16px 0;
+        box-shadow: var(--shadow-h);
+        transform: rotate(-1deg);
+        transition: transform 0.5s ease;
+      }
+      .portrait-frame:hover {
+        transform: rotate(0);
+      }
+
+      .portrait-meta {
+        margin-top: 28px;
+        padding: 24px;
+        background: var(--white);
+        border-left: 3px solid var(--copper);
+      }
+      .meta-name {
+        display: block;
+        font-family: var(--font-serif);
+        font-size: 1.15rem;
+        color: var(--navy);
+        font-weight: 600;
+        margin-bottom: 4px;
+      }
+      .meta-role {
+        font-size: 0.82rem;
+        color: var(--text-m);
+        letter-spacing: 0.02em;
+      }
+
+      .educator-text {
+        padding-top: 8px;
+      }
+      .educator-text .section-kicker {
+        padding-left: 0;
+        margin-left: 0;
+      }
+      .educator-text .section-kicker::before {
+        display: none;
+      }
+      .educator-text .section-title {
+        text-align: left;
+      }
+      .educator-text p {
+        color: var(--text-m);
+        font-size: 1.05rem;
+        line-height: 1.8;
+        margin-bottom: 18px;
+        max-width: 620px;
+      }
+      .educator-text strong {
+        color: var(--navy);
+      }
+
+      .educator-credentials {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0;
+        margin-top: 40px;
+        border-top: 1px solid var(--line);
+        border-left: 1px solid var(--line);
+      }
+      .cred {
+        padding: 26px 24px;
+        border-right: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
+        background: var(--white);
+      }
+      .cred-year {
+        display: block;
+        font-family: var(--font-serif);
+        font-size: 2.2rem;
+        color: var(--copper);
+        line-height: 1;
+        margin-bottom: 12px;
+        font-weight: 600;
+      }
+      .cred-text {
+        font-size: 0.82rem;
+        color: var(--text);
+        line-height: 1.5;
+      }
+      .cred-text em {
+        display: block;
+        color: var(--text-m);
+        margin-top: 2px;
+        font-size: 0.76rem;
+      }
+
+      /* ─── Worksheets ─── */
+      .worksheets {
+        padding: 120px 0;
+        background: var(--cream);
+        position: relative;
+        overflow: hidden;
+      }
+      .worksheets::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(
+            circle at 10% 10%,
+            rgba(24, 50, 79, 0.03) 0%,
+            transparent 40%
+          ),
+          radial-gradient(
+            circle at 90% 90%,
+            rgba(184, 115, 51, 0.05) 0%,
+            transparent 40%
+          );
+        pointer-events: none;
+      }
+
+      .worksheet-stage {
+        position: relative;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 28px;
+        margin-bottom: 32px;
+        z-index: 1;
+      }
+
+      .paper {
+        background: var(--paper);
+        padding: 36px 30px 28px;
+        box-shadow:
+          0 1px 1px rgba(0, 0, 0, 0.04),
+          0 2px 4px rgba(0, 0, 0, 0.06),
+          0 18px 40px rgba(24, 50, 79, 0.14);
+        position: relative;
+        color: var(--navy-ink);
+        font-size: 0.82rem;
+        line-height: 1.5;
+        transition:
+          transform 0.4s ease,
+          box-shadow 0.4s ease;
+        border-radius: 1px;
+      }
+      .paper::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.015) 100%),
+          repeating-linear-gradient(
+            180deg,
+            transparent 0 28px,
+            rgba(24, 50, 79, 0.04) 28px 29px
+          );
+        pointer-events: none;
+      }
+      .paper-rotate-l {
+        transform: rotate(-1.5deg);
+      }
+      .paper-rotate-r {
+        transform: rotate(1.8deg);
+      }
+      .paper:hover {
+        transform: rotate(0) translateY(-6px);
+        box-shadow:
+          0 2px 4px rgba(0, 0, 0, 0.06),
+          0 24px 56px rgba(24, 50, 79, 0.22);
+        z-index: 2;
+      }
+
+      .paper-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 12px;
+        padding-bottom: 14px;
+        margin-bottom: 16px;
+        border-bottom: 1px solid rgba(24, 50, 79, 0.18);
+        position: relative;
+        z-index: 1;
+      }
+      .paper-head-l {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+      }
+      .paper-brand {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .paper-brand img {
+        width: 22px;
+        height: 22px;
+        border-radius: 50%;
+        filter: contrast(0.9);
+      }
+      .paper-brand span {
+        font-family: var(--font-serif);
+        font-weight: 700;
+        font-size: 1rem;
+        color: var(--navy);
+        letter-spacing: 0.02em;
+      }
+      .paper-meta {
+        font-size: 0.68rem;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        color: var(--text-m);
+      }
+      .paper-head-r {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        font-size: 0.7rem;
+        color: var(--text-m);
+        text-align: right;
+        font-family: "Courier New", monospace;
+      }
+
+      .paper-title {
+        font-family: var(--font-serif);
+        font-size: 1.18rem;
+        color: var(--navy);
+        margin-bottom: 6px;
+        position: relative;
+        z-index: 1;
+      }
+      .paper-intro {
+        font-size: 0.78rem;
+        color: var(--text-m);
+        margin-bottom: 18px;
+        font-style: italic;
+        position: relative;
+        z-index: 1;
+      }
+
+      .paper-questions {
+        list-style: none;
+        position: relative;
+        z-index: 1;
+      }
+      .paper-questions li {
+        padding: 10px 0;
+        border-bottom: 1px dashed rgba(24, 50, 79, 0.1);
+        font-size: 0.82rem;
+        line-height: 1.55;
+        color: var(--text);
+      }
+      .paper-questions li:last-child {
+        border-bottom: none;
+      }
+      .paper-questions strong {
+        color: var(--copper);
+        margin-right: 4px;
+      }
+      .paper-questions em {
+        font-family: var(--font-serif);
+        font-style: italic;
+        color: var(--navy);
+      }
+      .eq {
+        font-family: "Cambria Math", "Times New Roman", serif;
+        font-style: italic;
+        color: var(--navy);
+        letter-spacing: 0.02em;
+      }
+
+      .paper-passage {
+        font-family: var(--font-serif);
+        font-style: italic;
+        font-size: 0.92rem;
+        line-height: 1.55;
+        color: var(--navy);
+        padding: 14px 16px;
+        margin-bottom: 16px;
+        background: rgba(255, 255, 255, 0.5);
+        border-left: 2px solid var(--copper);
+        position: relative;
+        z-index: 1;
+      }
+
+      .paper-diagram {
+        margin-bottom: 16px;
+        padding: 8px;
+        background: rgba(255, 255, 255, 0.5);
+        position: relative;
+        z-index: 1;
+      }
+      .paper-diagram svg {
+        width: 100%;
+        height: auto;
+      }
+
+      .paper-foot {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 18px;
+        padding-top: 12px;
+        border-top: 1px solid rgba(24, 50, 79, 0.12);
+        font-size: 0.68rem;
+        color: var(--text-m);
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        position: relative;
+        z-index: 1;
+      }
+
+      .paper-stamp {
+        position: absolute;
+        bottom: 18px;
+        right: 18px;
+        font-family: var(--font-serif);
+        font-style: italic;
+        font-size: 0.62rem;
+        color: var(--copper);
+        border: 1.5px solid var(--copper);
+        padding: 4px 10px;
+        border-radius: 2px;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        opacity: 0.55;
+        transform: rotate(-6deg);
+        pointer-events: none;
+      }
+
+      .worksheet-note {
+        position: relative;
+        text-align: center;
+        font-size: 0.82rem;
+        color: var(--text-m);
+        font-style: italic;
+        max-width: 620px;
+        margin: 24px auto 0;
+        z-index: 1;
+      }
+
+      /* ─── Testimonials ─── */
+      .testimonials {
+        padding: 120px 0;
+      }
+
+      .testimonial-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 32px;
+        align-items: start;
+      }
+
+      .testimonial-card {
+        position: relative;
+        background: var(--white);
+        padding: 40px 32px 32px;
+        border: 1px solid var(--line);
+        border-top: 3px solid var(--copper);
+      }
+      .testimonial-tall {
+        padding-top: 56px;
+        padding-bottom: 44px;
+      }
+
+      .quote-mark {
+        position: absolute;
+        top: -10px;
+        left: 22px;
+        font-family: var(--font-serif);
+        font-size: 4rem;
+        color: var(--copper);
+        background: var(--bg);
+        line-height: 1;
+        padding: 0 10px;
+      }
+
+      .testimonial-card p {
+        font-family: var(--font-serif);
+        font-style: italic;
+        font-size: 1.04rem;
+        color: var(--navy);
+        line-height: 1.6;
+        margin-bottom: 22px;
+      }
+
+      .testimonial-card footer {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        padding-top: 16px;
+        border-top: 1px solid var(--line);
+      }
+      .testimonial-card footer strong {
+        font-size: 0.85rem;
+        color: var(--navy);
+        font-weight: 600;
+      }
+      .testimonial-card footer span {
+        font-size: 0.72rem;
+        color: var(--copper);
+        font-weight: 700;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+      }
+
+      .placeholder-note {
+        text-align: center;
+        font-size: 0.76rem;
+        color: var(--text-l);
+        margin-top: 28px;
+        font-style: italic;
+      }
+
+      /* ─── Contact ─── */
+      .contact {
+        padding: 120px 0;
+        background: var(--navy);
+        color: var(--ivory);
+        position: relative;
+        overflow: hidden;
+      }
+      .contact::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(
+            ellipse at 0% 100%,
+            rgba(184, 115, 51, 0.12) 0%,
+            transparent 50%
+          ),
+          radial-gradient(
+            ellipse at 100% 0%,
+            rgba(184, 115, 51, 0.08) 0%,
+            transparent 60%
+          );
+        pointer-events: none;
+      }
+
+      .contact-grid {
+        position: relative;
+        display: grid;
+        grid-template-columns: 1.2fr 1fr;
+        gap: 80px;
+        align-items: start;
+      }
+
+      .contact-text .section-kicker {
+        padding-left: 0;
+      }
+      .contact-text .section-kicker::before {
+        display: none;
+      }
+      .contact-text .section-title {
+        text-align: left;
+        margin-bottom: 24px;
+      }
+      .contact-text p {
+        color: rgba(247, 243, 236, 0.78);
+        font-size: 1.05rem;
+        line-height: 1.75;
+        margin-bottom: 36px;
+        max-width: 520px;
+      }
+
+      .contact-details {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+      }
+      .contact-details li {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        padding: 14px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        font-size: 1rem;
+      }
+      .contact-details li:last-child {
+        border-bottom: none;
+      }
+      .contact-details svg {
+        width: 22px;
+        height: 22px;
+        color: var(--copper-l);
+        flex-shrink: 0;
+      }
+      .contact-details a {
+        color: var(--ivory);
+        font-weight: 500;
+        transition: var(--transition);
+      }
+      .contact-details a:hover {
+        color: var(--copper-l);
+      }
+
+      .contact-card {
+        background: var(--white);
+        color: var(--text);
+        padding: 44px 40px;
+        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.35);
+        border-top: 4px solid var(--copper);
+        position: relative;
+      }
+      .card-eyebrow {
+        display: block;
+        font-size: 0.7rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 2.5px;
+        color: var(--copper);
+        margin-bottom: 14px;
+      }
+      .contact-card h3 {
+        font-size: 1.7rem;
+        margin-bottom: 14px;
+      }
+      .contact-card > p {
+        font-size: 0.95rem;
+        color: var(--text-m);
+        line-height: 1.7;
+        margin-bottom: 28px;
+      }
+      .contact-cta-buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        margin-bottom: 22px;
+      }
+      .contact-card .btn-email {
+        color: var(--navy);
+        border-color: var(--line);
+      }
+      .contact-card .btn-email:hover {
+        background: var(--navy);
+        color: var(--white);
+        border-color: var(--navy);
+      }
+      .card-fineprint {
+        font-size: 0.78rem;
+        color: var(--text-l);
+        text-align: center;
+        font-style: italic;
+      }
+
+      /* ─── Footer ─── */
+      .site-footer {
+        padding: 56px 0 40px;
+        background: var(--navy-d);
+        color: rgba(247, 243, 236, 0.7);
+      }
+      .footer-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 32px;
+      }
+      .footer-brand {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+      }
+      .footer-brand img {
+        width: 52px;
+        height: 52px;
+        border-radius: 50%;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+      }
+      .footer-name {
+        font-family: var(--font-serif);
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: var(--ivory);
+        display: block;
+        margin-bottom: 4px;
+      }
+      .footer-brand p {
+        font-size: 0.8rem;
+        line-height: 1.55;
+      }
+      .footer-links {
+        display: flex;
+        gap: 28px;
+        flex-wrap: wrap;
+      }
+      .footer-links a {
+        font-size: 0.85rem;
+        color: rgba(247, 243, 236, 0.7);
+        transition: var(--transition);
+      }
+      .footer-links a:hover {
+        color: var(--copper-l);
+      }
+
+      /* ─── Responsive ─── */
+      @media (max-width: 1080px) {
+        .hero-grid {
+          grid-template-columns: 1fr;
+          gap: 56px;
+        }
+        .hero-feature {
+          max-width: 460px;
+          margin: 0 auto;
+        }
+        .award-grid,
+        .educator-grid,
+        .contact-grid {
+          grid-template-columns: 1fr;
+          gap: 56px;
+        }
+        .educator-portrait {
+          position: relative;
+          top: 0;
+          max-width: 420px;
+        }
+        .env-gallery {
+          grid-template-columns: 1fr 1fr;
+        }
+        .env-card-tall {
+          grid-column: 1 / -1;
+        }
+        .env-card-tall .img-placeholder {
+          aspect-ratio: 16/9;
+        }
+        .features-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .testimonial-grid {
+          grid-template-columns: 1fr;
+        }
+        .worksheet-stage {
+          grid-template-columns: 1fr 1fr;
+        }
+        .paper-third {
+          grid-column: 1 / -1;
+          max-width: 480px;
+          margin: 0 auto;
+        }
+        .hero-meta {
+          gap: 24px;
+          grid-template-columns: repeat(2, auto);
+        }
+        .meta-award {
+          padding-left: 0;
+          border-left: none;
+          grid-column: 1 / -1;
+        }
+      }
+
+      @media (max-width: 760px) {
+        .container {
+          padding: 0 22px;
+        }
+        .nav-logo-tag {
+          display: none;
+        }
+        .nav-links {
+          position: fixed;
+          top: 0;
+          right: -100%;
+          width: 78%;
+          max-width: 320px;
+          height: 100vh;
+          background: var(--white);
+          flex-direction: column;
+          padding: 90px 32px 32px;
+          gap: 22px;
+          box-shadow: -4px 0 32px rgba(24, 50, 79, 0.16);
+          transition: right 0.35s ease;
+          align-items: flex-start;
+        }
+        .nav-links.open {
+          right: 0;
+        }
+        .nav-toggle {
+          display: flex;
+        }
+
+        .hero {
+          padding-top: 48px;
+        }
+        .hero h1 {
+          font-size: clamp(2rem, 8vw, 2.6rem);
+        }
+        .hero-meta {
+          grid-template-columns: 1fr 1fr;
+          gap: 22px;
+        }
+        .meta-award {
+          grid-column: 1 / -1;
+        }
+        .feature-photo {
+          aspect-ratio: 3/4;
+        }
+
+        .subjects,
+        .why-us,
+        .educator,
+        .worksheets,
+        .testimonials,
+        .contact,
+        .environments,
+        .award-banner {
+          padding: 80px 0;
+        }
+
+        .subject-grid,
+        .features-grid {
+          grid-template-columns: 1fr;
+        }
+        .subject-card {
+          padding: 36px 28px;
+        }
+        .feature {
+          padding: 36px 28px;
+        }
+        .env-gallery {
+          grid-template-columns: 1fr;
+        }
+        .env-card-tall {
+          grid-column: auto;
+        }
+        .worksheet-stage {
+          grid-template-columns: 1fr;
+        }
+        .paper-third {
+          max-width: none;
+        }
+        .paper-rotate-l,
+        .paper-rotate-r {
+          transform: none;
+        }
+
+        .educator-credentials {
+          grid-template-columns: 1fr;
+        }
+
+        .footer-inner {
+          flex-direction: column;
+          text-align: center;
+          gap: 24px;
+        }
+        .footer-brand {
+          flex-direction: column;
+        }
+        .footer-links {
+          justify-content: center;
+        }
+
+        .topbar {
+          font-size: 0.68rem;
+        }
+        .topbar-sep {
+          display: none;
+        }
+
+        .award-photo {
+          transform: none;
+        }
+        .photo-tag {
+          right: 50%;
+          transform: translateX(50%);
+        }
+        .contact-card {
+          padding: 36px 28px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .section-title {
+          font-size: 1.85rem;
+        }
+        .hero h1 {
+          font-size: 2rem;
+        }
+        .btn {
+          padding: 13px 24px;
+          font-size: 0.88rem;
+        }
+        .hero-meta {
+          grid-template-columns: 1fr;
+        }
+        .meta-item {
+          flex-direction: row;
+          align-items: baseline;
+          gap: 14px;
+        }
+        .meta-award {
+          flex-direction: row;
+        }
+      }
+
+      /* ─── Utilities ─── */
+      ::selection {
+        background: rgba(184, 115, 51, 0.22);
+        color: var(--navy);
+      }
+
+      /* Subtle entrance animation */
+      @media (prefers-reduced-motion: no-preference) {
+        .subject-card,
+        .feature,
+        .testimonial-card,
+        .env-card,
+        .paper {
+          opacity: 0;
+          transform: translateY(24px);
+          animation: fadeUp 0.7s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+        @keyframes fadeUp {
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        .paper-rotate-l {
+          animation: fadeUpL 0.7s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+        .paper-rotate-r {
+          animation: fadeUpR 0.7s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+        @keyframes fadeUpL {
+          from {
+            opacity: 0;
+            transform: translateY(24px) rotate(0);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0) rotate(-1.5deg);
+          }
+        }
+        @keyframes fadeUpR {
+          from {
+            opacity: 0;
+            transform: translateY(24px) rotate(0);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0) rotate(1.8deg);
+          }
+        }
+
+        .subject-card:nth-child(2) {
+          animation-delay: 0.08s;
+        }
+        .subject-card:nth-child(3) {
+          animation-delay: 0.16s;
+        }
+        .subject-card:nth-child(4) {
+          animation-delay: 0.24s;
+        }
+
+        .feature:nth-child(2) {
+          animation-delay: 0.08s;
+        }
+        .feature:nth-child(3) {
+          animation-delay: 0.16s;
+        }
+        .feature:nth-child(4) {
+          animation-delay: 0.24s;
+        }
+        .feature:nth-child(5) {
+          animation-delay: 0.32s;
+        }
+        .feature:nth-child(6) {
+          animation-delay: 0.4s;
+        }
+
+        .env-card:nth-child(2) {
+          animation-delay: 0.1s;
+        }
+        .env-card:nth-child(3) {
+          animation-delay: 0.2s;
+        }
+
+        .testimonial-card:nth-child(2) {
+          animation-delay: 0.1s;
+        }
+        .testimonial-card:nth-child(3) {
+          animation-delay: 0.2s;
+        }
+
+        .paper:nth-child(2) {
+          animation-delay: 0.12s;
+        }
+        .paper:nth-child(3) {
+          animation-delay: 0.24s;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ─── Announcement Bar ─── -->
+    <div class="topbar">
+      <div class="container topbar-inner">
+        <span class="topbar-dot"></span>
+        <span>Now enrolling for the 2026 academic year</span>
+        <span class="topbar-sep">·</span>
+        <span
+          >IB &nbsp;·&nbsp; IGCSE &nbsp;·&nbsp; CBSE &nbsp;·&nbsp; A &amp; O
+          Levels</span
+        >
+      </div>
+    </div>
+
+    <!-- ─── Navigation ─── -->
+    <nav class="navbar" id="navbar">
+      <div class="container nav-inner">
+        <a href="#" class="nav-logo">
+          <img src="eduzen_logo.png" alt="Eduzen Logo" />
+          <span class="nav-logo-text">
+            <span class="nav-logo-name">Eduzen</span>
+            <span class="nav-logo-tag">Global Academic Enrichment</span>
+          </span>
+        </a>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#subjects">Subjects</a></li>
+          <li><a href="#educator">The Educator</a></li>
+          <li><a href="#why-us">Why Eduzen</a></li>
+          <li><a href="#worksheets">Worksheets</a></li>
+          <li><a href="#contact" class="nav-cta">Get in Touch</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- ─── Hero ─── -->
+    <header class="hero" id="hero">
+      <div class="container hero-grid">
+        <div class="hero-text">
+          <p class="eyebrow">
+            <span class="eyebrow-rule"></span>Global Academic Enrichment Program
+          </p>
+          <h1>
+            Unlock your child's
+            <em class="accent-serif">full potential</em>
+            — one lesson at a&nbsp;time.
+          </h1>
+          <p class="hero-sub">
+            Expert private tutoring in English, Science, Mathematics &amp; Hindi
+            for classes V&ndash;X — across <strong>IB</strong>,
+            <strong>IGCSE</strong>, and <strong>CBSE</strong> curricula. Taught
+            by an award-winning educator with two decades of experience across
+            India and the Cambridge curriculum.
+          </p>
+          <div class="hero-actions">
+            <a
+              href="https://wa.me/919810448905?text=Hi%2C%20I%27m%20interested%20in%20Eduzen%20tutoring.%20Could%20you%20share%20more%20details%3F"
+              target="_blank"
+              rel="noopener"
+              class="btn btn-primary"
+            >
+              Book a Free Consultation
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path d="M5 12h14M13 5l7 7-7 7" />
+              </svg>
+            </a>
+            <a href="#educator" class="btn btn-outline">Meet the Educator</a>
+          </div>
+
+          <div class="hero-meta">
+            <div class="meta-item">
+              <span class="meta-num">22<span class="meta-plus">+</span></span>
+              <span class="meta-label">Years<br />teaching</span>
+            </div>
+            <div class="meta-item">
+              <span class="meta-num">15<span class="meta-plus">+</span></span>
+              <span class="meta-label">Years in<br />intl. curricula</span>
+            </div>
+            <div class="meta-item">
+              <span class="meta-num">4</span>
+              <span class="meta-label">Subjects<br />offered</span>
+            </div>
+            <div class="meta-item meta-award">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.6"
+              >
+                <circle cx="12" cy="9" r="6" />
+                <path d="M9 14l-2 8 5-3 5 3-2-8" />
+              </svg>
+              <span class="meta-label"
+                >Best Teacher Award<br /><strong>New Delhi · 2010</strong></span
+              >
+            </div>
+          </div>
+        </div>
+
+        <aside class="hero-feature" aria-label="Award moment">
+          <div class="hero-feature-card">
+            <div class="feature-photo" data-img="award">
+              <!-- Placeholder for award ceremony photo -->
+              <!-- <div class="img-placeholder img-placeholder-award">
+              <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.4">
+                <rect x="6" y="44" width="52" height="14" rx="1"/>
+                <path d="M14 44V20a8 8 0 0 1 8-8h20a8 8 0 0 1 8 8v24"/>
+                <circle cx="32" cy="26" r="6"/>
+                <path d="M28 32l-2 10 6-3 6 3-2-10"/>
+              </svg>
+              <span>Replace with award<br/>ceremony photograph</span>
+            </div> -->
+              <img src="images/strip-classroom.jpg" />
+            </div>
+            <div class="feature-caption">
+              <span class="caption-label">A defining moment</span>
+              <p>
+                "Receiving the <em>Best Teacher Award</em> from the Government
+                of India — a recognition of the lives our classroom has
+                touched."
+              </p>
+              <span class="caption-byline">New Delhi · 2010</span>
+            </div>
+          </div>
+          <img
+            src="eduzen_logo.png"
+            alt=""
+            class="hero-watermark"
+            aria-hidden="true"
+          />
+        </aside>
+      </div>
+
+      <div class="hero-marquee" aria-hidden="true">
+        <div class="marquee-track">
+          <span>IB Curriculum</span><span>·</span> <span>IGCSE</span
+          ><span>·</span> <span>CBSE</span><span>·</span> <span>Cambridge</span
+          ><span>·</span> <span>A &amp; O Levels</span><span>·</span>
+          <span>English</span><span>·</span> <span>Mathematics</span
+          ><span>·</span> <span>Science</span><span>·</span> <span>Hindi</span
+          ><span>·</span> <span>IB Curriculum</span><span>·</span>
+          <span>IGCSE</span><span>·</span> <span>CBSE</span><span>·</span>
+          <span>Cambridge</span><span>·</span> <span>A &amp; O Levels</span
+          ><span>·</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- ─── Subjects ─── -->
+    <section class="subjects" id="subjects">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-kicker">01 — Curriculum</span>
+          <h2 class="section-title">
+            What we teach,<br /><em>and how we teach it.</em>
+          </h2>
+          <p class="section-lede">
+            Tailored instruction across four core disciplines, calibrated for
+            both international and national curricula. Every learner begins with
+            a diagnostic and a learning plan written for them — not for the
+            average.
+          </p>
+        </div>
+
+        <div class="subject-grid">
+          <article class="subject-card">
+            <div class="subject-head">
+              <span class="subject-num">01</span>
+              <span class="subject-tag">Language &amp; Literature</span>
+            </div>
+            <h3>English</h3>
+            <p>
+              Literature, language, grammar, and creative writing — building
+              confident communicators.
+            </p>
+            <ul class="subject-bullets">
+              <li>Close reading &amp; literary analysis</li>
+              <li>Composition &amp; rhetoric</li>
+              <li>Grammar &amp; vocabulary mastery</li>
+            </ul>
+            <div class="subject-foot">V — X · IB · IGCSE · CBSE</div>
+          </article>
+
+          <article class="subject-card">
+            <div class="subject-head">
+              <span class="subject-num">02</span>
+              <span class="subject-tag">Physics · Chemistry · Biology</span>
+            </div>
+            <h3>Science</h3>
+            <p>
+              Concept-driven learning with real-world applications — not rote
+              recall.
+            </p>
+            <ul class="subject-bullets">
+              <li>First-principles understanding</li>
+              <li>Lab-aware problem solving</li>
+              <li>Exam-style application practice</li>
+            </ul>
+            <div class="subject-foot">V — X · IB · IGCSE · CBSE</div>
+          </article>
+
+          <article class="subject-card">
+            <div class="subject-head">
+              <span class="subject-num">03</span>
+              <span class="subject-tag">Numeracy &amp; Reasoning</span>
+            </div>
+            <h3>Mathematics</h3>
+            <p>
+              From fundamentals to advanced problem-solving — structured for
+              clarity and confidence.
+            </p>
+            <ul class="subject-bullets">
+              <li>Conceptual foundations</li>
+              <li>Step-by-step problem strategy</li>
+              <li>Higher-order &amp; competition prep</li>
+            </ul>
+            <div class="subject-foot">V — X · IB · IGCSE · CBSE</div>
+          </article>
+
+          <article class="subject-card">
+            <div class="subject-head">
+              <span class="subject-num">04</span>
+              <span class="subject-tag">Language &amp; Fluency</span>
+            </div>
+            <h3>Hindi</h3>
+            <p>
+              Primary 5 through A &amp; O Levels — reading, writing, and fluency
+              for all proficiencies.
+            </p>
+            <ul class="subject-bullets">
+              <li>Native &amp; second-language paths</li>
+              <li>Script, grammar &amp; comprehension</li>
+              <li>Examination-board specialisation</li>
+            </ul>
+            <div class="subject-foot">P5 — A &amp; O Levels</div>
+          </article>
+        </div>
+
+        <div class="curricula-strip">
+          <span class="strip-label">As taught across</span>
+          <span class="curricula-badge">IB</span>
+          <span class="curricula-badge">IGCSE</span>
+          <span class="curricula-badge">CBSE</span>
+          <span class="curricula-badge">Cambridge</span>
+          <span class="curricula-badge">A &amp; O Levels</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── Award Feature Banner ─── -->
+    <section class="award-banner">
+      <div class="container award-grid">
+        <div class="award-photo" data-img="award-full">
+          <div class="img-placeholder img-placeholder-large">
+            <svg
+              viewBox="0 0 64 64"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.3"
+            >
+              <path d="M8 56h48" />
+              <rect x="20" y="40" width="24" height="16" rx="1" />
+              <path d="M32 40V30" />
+              <circle cx="32" cy="22" r="8" />
+              <path d="M24 22a8 8 0 0 1-8-8M40 22a8 8 0 0 0 8-8" />
+            </svg>
+            <span
+              >Award ceremony photograph<br />— horizontal, 4:3 preferred</span
+            >
+          </div>
+          <span class="photo-tag">Government of India · 2010</span>
+        </div>
+        <div class="award-text">
+          <span class="section-kicker on-dark">Recognition</span>
+          <h2 class="section-title on-dark">
+            A teacher honoured by
+            <em class="accent-serif">the Government of India.</em>
+          </h2>
+          <p>
+            In 2010, the founder of Eduzen was awarded the
+            <strong>Best Teacher Award</strong>
+            in New Delhi — a recognition of years devoted to classrooms where
+            every child's curiosity was met with patience, structure, and a
+            belief in their potential.
+          </p>
+          <p>
+            That same standard now travels with every Eduzen student, wherever
+            in the world they are learning from.
+          </p>
+          <div class="award-signature">
+            <span class="sig-line">— Founder &amp; Head Educator, Eduzen</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── Learning Environments / Gallery ─── -->
+    <section class="environments" id="environments">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-kicker">02 — Inside the classroom</span>
+          <h2 class="section-title">
+            Where the learning <em>actually</em> happens.
+          </h2>
+          <p class="section-lede">
+            A calm, considered space — whether on a screen or across a desk.
+            Small groups. Real materials. A pace set by the student.
+          </p>
+        </div>
+
+        <div class="env-gallery">
+          <figure class="env-card env-card-tall">
+            <div class="img-placeholder img-placeholder-photo">
+              <svg
+                viewBox="0 0 64 64"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.3"
+              >
+                <rect x="6" y="10" width="52" height="36" rx="2" />
+                <path d="M6 38l14-14 12 12 8-8 18 18" />
+                <circle cx="44" cy="22" r="4" />
+              </svg>
+              <span
+                >Classroom · wide angle<br /><em
+                  >AI-generated placeholder</em
+                ></span
+              >
+            </div>
+            <figcaption>
+              <span class="fig-num">i.</span>
+              <span class="fig-text"
+                >One-on-one sessions in our flagship study room — light, books,
+                and undivided attention.</span
+              >
+            </figcaption>
+          </figure>
+
+          <figure class="env-card">
+            <div class="img-placeholder img-placeholder-photo">
+              <svg
+                viewBox="0 0 64 64"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.3"
+              >
+                <rect x="6" y="10" width="52" height="36" rx="2" />
+                <path d="M6 38l14-14 12 12 8-8 18 18" />
+                <circle cx="44" cy="22" r="4" />
+              </svg>
+              <span>Student at work · close-up</span>
+            </div>
+            <figcaption>
+              <span class="fig-num">ii.</span>
+              <span class="fig-text"
+                >Annotated worksheets — feedback in the margins, the way it
+                ought to be.</span
+              >
+            </figcaption>
+          </figure>
+
+          <figure class="env-card">
+            <div class="img-placeholder img-placeholder-photo">
+              <svg
+                viewBox="0 0 64 64"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.3"
+              >
+                <rect x="6" y="10" width="52" height="36" rx="2" />
+                <path d="M6 38l14-14 12 12 8-8 18 18" />
+                <circle cx="44" cy="22" r="4" />
+              </svg>
+              <span>Online session · screen view</span>
+            </div>
+            <figcaption>
+              <span class="fig-num">iii.</span>
+              <span class="fig-text"
+                >Online classes designed for genuine engagement — across time
+                zones, never across purpose.</span
+              >
+            </figcaption>
+          </figure>
+        </div>
+
+        <p class="placeholder-note">
+          Image slots above accept AI-generated visuals of classrooms, students
+          and study environments.
+        </p>
+      </div>
+    </section>
+
+    <!-- ─── Why Us ─── -->
+    <section class="why-us" id="why-us">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-kicker">03 — Method</span>
+          <h2 class="section-title">
+            Why families choose <em class="accent-serif">Eduzen.</em>
+          </h2>
+          <p class="section-lede">
+            Six commitments that shape every lesson we teach.
+          </p>
+        </div>
+
+        <div class="features-grid">
+          <article class="feature">
+            <span class="feature-no">i.</span>
+            <div class="feature-icon">
+              <svg
+                viewBox="0 0 48 48"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <circle cx="24" cy="24" r="20" />
+                <path d="M24 4a28 28 0 0 1 0 40" />
+                <path d="M24 4a28 28 0 0 0 0 40" />
+                <line x1="4" y1="24" x2="44" y2="24" />
+              </svg>
+            </div>
+            <h4>Flexible Learning</h4>
+            <p>
+              Online and in-person classes across time zones — learn from
+              anywhere in the world.
+            </p>
+          </article>
+
+          <article class="feature">
+            <span class="feature-no">ii.</span>
+            <div class="feature-icon">
+              <svg
+                viewBox="0 0 48 48"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <rect x="6" y="6" width="36" height="36" rx="2" />
+                <line x1="6" y1="18" x2="42" y2="18" />
+                <line x1="18" y1="6" x2="18" y2="42" />
+              </svg>
+            </div>
+            <h4>Comprehensive Resources</h4>
+            <p>
+              Expertly curated notes, study materials and practice worksheets
+              for every topic.
+            </p>
+          </article>
+
+          <article class="feature">
+            <span class="feature-no">iii.</span>
+            <div class="feature-icon">
+              <svg
+                viewBox="0 0 48 48"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M8 40V16l16-8 16 8v24" />
+                <path d="M8 40h32" />
+                <rect x="18" y="26" width="12" height="14" />
+              </svg>
+            </div>
+            <h4>Concept Clarity</h4>
+            <p>
+              Interactive doubt-clearing sessions with personalised attention —
+              no question goes unanswered.
+            </p>
+          </article>
+
+          <article class="feature">
+            <span class="feature-no">iv.</span>
+            <div class="feature-icon">
+              <svg
+                viewBox="0 0 48 48"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M24 4l6 12 13 2-9 9 2 13-12-6-12 6 2-13-9-9 13-2z" />
+              </svg>
+            </div>
+            <h4>Proven Track Record</h4>
+            <p>
+              22+ years of teaching experience, including 15+ years specialising
+              in CBSE &amp; international curricula.
+            </p>
+          </article>
+
+          <article class="feature">
+            <span class="feature-no">v.</span>
+            <div class="feature-icon">
+              <svg
+                viewBox="0 0 48 48"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <circle cx="24" cy="14" r="10" />
+                <path d="M14 44V34a10 10 0 0 1 20 0v10" />
+              </svg>
+            </div>
+            <h4>Global Academic Leadership</h4>
+            <p>
+              Former Level Head (India) with extensive international teaching
+              &amp; leadership in the Cambridge curriculum.
+            </p>
+          </article>
+
+          <article class="feature">
+            <span class="feature-no">vi.</span>
+            <div class="feature-icon">
+              <svg
+                viewBox="0 0 48 48"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <circle cx="24" cy="12" r="8" />
+                <path d="M16 20l-4 20h24l-4-20" />
+                <path d="M20 30h8" />
+              </svg>
+            </div>
+            <h4>Award-Winning Educator</h4>
+            <p>
+              Winner of the <strong>Best Teacher Award</strong> — New Delhi,
+              India, 2010.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── The Educator ─── -->
+    <section class="educator" id="educator">
+      <div class="container educator-grid">
+        <aside class="educator-portrait">
+          <div class="portrait-frame" data-img="portrait">
+            <div class="img-placeholder img-placeholder-portrait">
+              <svg
+                viewBox="0 0 64 64"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.3"
+              >
+                <circle cx="32" cy="24" r="10" />
+                <path d="M14 56c0-10 8-18 18-18s18 8 18 18" />
+              </svg>
+              <span>Portrait of<br />the educator</span>
+            </div>
+          </div>
+          <div class="portrait-meta">
+            <span class="meta-name">Founder &amp; Head Educator</span>
+            <span class="meta-role"
+              >Former Level Head (India) · Cambridge Curriculum</span
+            >
+          </div>
+        </aside>
+
+        <div class="educator-text">
+          <span class="section-kicker">04 — The Educator</span>
+          <h2 class="section-title">
+            A career built around
+            <em class="accent-serif">one student at a time.</em>
+          </h2>
+          <p>
+            With over
+            <strong>22 years of dedicated teaching experience</strong>, the
+            founder of Eduzen brings a rare combination of depth and breadth to
+            every lesson. Having served as a
+            <strong>Level Head in India</strong> and taught extensively within
+            the <strong>Cambridge Curriculum</strong>, they understand what it
+            takes to help students excel — regardless of the board or country.
+          </p>
+          <p>
+            At Eduzen, every student receives a learning plan shaped around
+            their strengths, gaps, and goals. Whether preparing for board exams,
+            entrance tests, or simply building a stronger foundation, we meet
+            each learner exactly where they are.
+          </p>
+
+          <div class="educator-credentials">
+            <div class="cred">
+              <span class="cred-year">2010</span>
+              <span class="cred-text"
+                >Best Teacher Award<br /><em
+                  >Government of India · New Delhi</em
+                ></span
+              >
+            </div>
+            <div class="cred">
+              <span class="cred-year">15+</span>
+              <span class="cred-text"
+                >Years across<br /><em
+                  >IB · IGCSE · Cambridge curricula</em
+                ></span
+              >
+            </div>
+            <div class="cred">
+              <span class="cred-year">Level<br />Head</span>
+              <span class="cred-text"
+                >Former Level Head (India)<br /><em
+                  >Cambridge Curriculum</em
+                ></span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── Sample Worksheets ─── -->
+    <section class="worksheets" id="worksheets">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-kicker">05 — The materials</span>
+          <h2 class="section-title">
+            A look at our <em class="accent-serif">worksheets.</em>
+          </h2>
+          <p class="section-lede">
+            Every Eduzen student works through purpose-built worksheets —
+            drafted, sequenced and annotated to match how the topic is actually
+            taught. A few examples are below.
+          </p>
+        </div>
+
+        <div class="worksheet-stage">
+          <!-- Mathematics worksheet -->
+          <article class="paper paper-rotate-l">
+            <div class="paper-head">
+              <div class="paper-head-l">
+                <div class="paper-brand">
+                  <img src="eduzen_logo.png" alt="" /><span>Eduzen</span>
+                </div>
+                <span class="paper-meta"
+                  >Mathematics · Class IX · Worksheet 04</span
+                >
+              </div>
+              <div class="paper-head-r">
+                <span>Name: __________________</span>
+                <span>Date: ________</span>
+              </div>
+            </div>
+            <h3 class="paper-title">Quadratic Equations &amp; Their Roots</h3>
+            <p class="paper-intro">
+              Solve the following. Show all working. <em>(8 marks each)</em>
+            </p>
+            <ol class="paper-questions">
+              <li>
+                <strong>1.</strong> Solve for <em>x</em>: &nbsp;
+                <span class="eq">x² &minus; 7x + 12 = 0</span>
+              </li>
+              <li>
+                <strong>2.</strong> Find the discriminant and nature of roots:
+                &nbsp; <span class="eq">3x² + 5x &minus; 2 = 0</span>
+              </li>
+              <li>
+                <strong>3.</strong> If one root of
+                <span class="eq">x² + kx + 8 = 0</span> is <em>2</em>, find
+                <em>k</em> and the other root.
+              </li>
+              <li>
+                <strong>4.</strong> A rectangular plot has a length 3 m more
+                than its breadth and an area of 54 m². Find its dimensions.
+              </li>
+              <li>
+                <strong>5.</strong> Form a quadratic equation whose roots are
+                <em>3 + √2</em> and <em>3 − √2</em>.
+              </li>
+            </ol>
+            <div class="paper-foot">
+              <span>Total: 40</span><span>Page 1 of 2</span>
+            </div>
+            <div class="paper-stamp">Eduzen · Practice Set</div>
+          </article>
+
+          <!-- Science worksheet -->
+          <article class="paper paper-rotate-r">
+            <div class="paper-head">
+              <div class="paper-head-l">
+                <div class="paper-brand">
+                  <img src="eduzen_logo.png" alt="" /><span>Eduzen</span>
+                </div>
+                <span class="paper-meta">Physics · IGCSE · Worksheet 07</span>
+              </div>
+              <div class="paper-head-r">
+                <span>Name: __________________</span>
+                <span>Date: ________</span>
+              </div>
+            </div>
+            <h3 class="paper-title">Forces, Mass &amp; Acceleration</h3>
+            <p class="paper-intro">
+              Use <em>F = ma</em>. Take g = 9.8 m s⁻². Round to 2 s.f.
+            </p>
+
+            <div class="paper-diagram" aria-hidden="true">
+              <svg viewBox="0 0 320 110" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <marker
+                    id="arr"
+                    viewBox="0 0 10 10"
+                    refX="8"
+                    refY="5"
+                    markerWidth="6"
+                    markerHeight="6"
+                    orient="auto"
+                  >
+                    <path d="M0,0 L10,5 L0,10 z" fill="#1e3a5f" />
+                  </marker>
+                </defs>
+                <line
+                  x1="20"
+                  y1="90"
+                  x2="300"
+                  y2="90"
+                  stroke="#1e3a5f"
+                  stroke-width="1"
+                />
+                <g>
+                  <rect
+                    x="120"
+                    y="55"
+                    width="55"
+                    height="35"
+                    fill="none"
+                    stroke="#1e3a5f"
+                    stroke-width="1.4"
+                  />
+                  <text
+                    x="138"
+                    y="78"
+                    font-family="Manrope, sans-serif"
+                    font-size="12"
+                    fill="#1e3a5f"
+                  >
+                    m
+                  </text>
+                  <circle cx="130" cy="92" r="4" fill="none" stroke="#1e3a5f" />
+                  <circle cx="165" cy="92" r="4" fill="none" stroke="#1e3a5f" />
+                </g>
+                <line
+                  x1="175"
+                  y1="72"
+                  x2="240"
+                  y2="72"
+                  stroke="#b87333"
+                  stroke-width="1.4"
+                  marker-end="url(#arr)"
+                />
+                <text
+                  x="200"
+                  y="65"
+                  font-family="Playfair Display, serif"
+                  font-style="italic"
+                  font-size="13"
+                  fill="#b87333"
+                >
+                  F
+                </text>
+                <line
+                  x1="120"
+                  y1="72"
+                  x2="80"
+                  y2="72"
+                  stroke="#1e3a5f"
+                  stroke-width="1"
+                  stroke-dasharray="3 3"
+                  marker-end="url(#arr)"
+                />
+                <text
+                  x="86"
+                  y="65"
+                  font-family="Manrope, sans-serif"
+                  font-size="11"
+                  fill="#5a6d80"
+                >
+                  friction
+                </text>
+              </svg>
+            </div>
+
+            <ol class="paper-questions">
+              <li>
+                <strong>1.</strong> A 4 kg trolley is pulled with a 20 N force.
+                Friction = 4 N. Find <em>a</em>.
+              </li>
+              <li>
+                <strong>2.</strong> Sketch the free-body diagram for an object
+                in free-fall and one on a slope.
+              </li>
+              <li>
+                <strong>3.</strong> Explain, in your own words, Newton's third
+                law with a real-world example.
+              </li>
+            </ol>
+            <div class="paper-foot">
+              <span>Total: 24</span><span>Page 1 of 1</span>
+            </div>
+            <div class="paper-stamp">Eduzen · Practice Set</div>
+          </article>
+
+          <!-- English worksheet -->
+          <article class="paper paper-rotate-l paper-third">
+            <div class="paper-head">
+              <div class="paper-head-l">
+                <div class="paper-brand">
+                  <img src="eduzen_logo.png" alt="" /><span>Eduzen</span>
+                </div>
+                <span class="paper-meta">English · IB MYP · Worksheet 12</span>
+              </div>
+              <div class="paper-head-r">
+                <span>Name: __________________</span>
+                <span>Date: ________</span>
+              </div>
+            </div>
+            <h3 class="paper-title">Close Reading: Voice &amp; Tone</h3>
+            <p class="paper-intro">
+              Read the passage carefully. Underline language that reveals the
+              narrator's attitude.
+            </p>
+
+            <blockquote class="paper-passage">
+              "The morning train was, as ever, an apology for one — late,
+              breathless, and crowded with the same weary commuters who had
+              given up hoping for better. And yet, in the slant of light through
+              the carriage windows, there was something almost forgiving about
+              the city today."
+            </blockquote>
+
+            <ol class="paper-questions">
+              <li>
+                <strong>1.</strong> Identify two words that convey the
+                narrator's <em>frustration</em>.
+              </li>
+              <li>
+                <strong>2.</strong> How does the tone shift in the second
+                sentence? Refer to specific language.
+              </li>
+              <li>
+                <strong>3.</strong> Rewrite the passage in a tone of
+                <em>excitement</em>. Keep the imagery; change the mood.
+              </li>
+            </ol>
+            <div class="paper-foot">
+              <span>Total: 20</span><span>Page 1 of 1</span>
+            </div>
+            <div class="paper-stamp">Eduzen · Practice Set</div>
+          </article>
+        </div>
+
+        <p class="worksheet-note">
+          Worksheets shown are representative samples. Every learner receives a
+          custom-sequenced bank tailored to their board, grade and current
+          strengths.
+        </p>
+      </div>
+    </section>
+
+    <!-- ─── Testimonials ─── -->
+    <section class="testimonials" id="testimonials">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-kicker">06 — In their words</span>
+          <h2 class="section-title">From parents &amp; students.</h2>
+        </div>
+
+        <div class="testimonial-grid">
+          <blockquote class="testimonial-card">
+            <span class="quote-mark">&ldquo;</span>
+            <p>
+              My daughter's confidence in Maths has completely transformed since
+              she started with Eduzen. The personalised approach makes all the
+              difference.
+            </p>
+            <footer>
+              <strong>Parent of Class VIII student</strong>
+              <span>IGCSE · Singapore</span>
+            </footer>
+          </blockquote>
+
+          <blockquote class="testimonial-card testimonial-tall">
+            <span class="quote-mark">&ldquo;</span>
+            <p>
+              I used to dread Science, but now it's my favourite subject. The
+              way concepts are explained just <em>clicks</em>. I actually look
+              forward to my Wednesday classes — which I never thought I'd say.
+            </p>
+            <footer>
+              <strong>Class IX student</strong>
+              <span>CBSE · New Delhi</span>
+            </footer>
+          </blockquote>
+
+          <blockquote class="testimonial-card">
+            <span class="quote-mark">&ldquo;</span>
+            <p>
+              Excellent resources and truly flexible scheduling. We've been with
+              Eduzen for two years and wouldn't go anywhere else.
+            </p>
+            <footer>
+              <strong>Parent of Class VII student</strong>
+              <span>IB · Dubai</span>
+            </footer>
+          </blockquote>
+        </div>
+        <p class="placeholder-note">
+          * Sample testimonials — replace with real ones.
+        </p>
+      </div>
+    </section>
+
+    <!-- ─── Contact / CTA ─── -->
+    <section class="contact" id="contact">
+      <div class="container contact-grid">
+        <div class="contact-text">
+          <span class="section-kicker on-dark">07 — Begin</span>
+          <h2 class="section-title on-dark">
+            Let's design a plan
+            <em class="accent-serif">for your child.</em>
+          </h2>
+          <p>
+            Ready to give your child the academic edge? Reach out for a free
+            consultation and we'll build a learning plan together — diagnostic,
+            schedule, and goals, tailored from the first session.
+          </p>
+
+          <ul class="contact-details">
+            <li>
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M22 16.92v3a2 2 0 0 1-2.18 2 19.86 19.86 0 0 1-8.63-3.07A19.5 19.5 0 0 1 5.15 12.8 19.86 19.86 0 0 1 2.08 4.18 2 2 0 0 1 4.06 2h3a2 2 0 0 1 2 1.72c.13.81.36 1.6.68 2.34a2 2 0 0 1-.45 2.11L8.09 9.4a16 16 0 0 0 6.51 6.51l1.23-1.23a2 2 0 0 1 2.11-.45c.74.32 1.53.55 2.34.68a2 2 0 0 1 1.72 2.01z"
+                />
+              </svg>
+              <a href="tel:+919810448905">+91 98104 48905</a>
+            </li>
+            <li>
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+                />
+                <polyline points="22,6 12,13 2,6" />
+              </svg>
+              <a
+                href="/cdn-cgi/l/email-protection#50333f3e24313324103534252a353e7e333f3d"
+                ><span
+                  class="__cf_email__"
+                  data-cfemail="f1929e9f85909285b19495848b949fdf929e9c"
+                  >[email&#160;protected]</span
+                ></a
+              >
+            </li>
+            <li>
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1 1 18 0z" />
+                <circle cx="12" cy="10" r="3" />
+              </svg>
+              <span>Online &amp; in-person — worldwide</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="contact-card">
+          <span class="card-eyebrow">Take the first step</span>
+          <h3>A short message is all it takes.</h3>
+          <p>
+            Tell us about your child — grade, board, subjects — and we'll get
+            back within one working day.
+          </p>
+          <div class="contact-cta-buttons">
+            <a
+              href="https://wa.me/919810448905?text=Hi%2C%20I%27m%20interested%20in%20Eduzen%20tutoring.%20Could%20you%20share%20more%20details%3F"
+              target="_blank"
+              rel="noopener"
+              class="btn btn-whatsapp btn-full"
+            >
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"
+                />
+              </svg>
+              Message us on WhatsApp
+            </a>
+            <a
+              href="/cdn-cgi/l/email-protection#3754585943565443775253424d52591954585a084442555d5254430a725946425e454e12050756555842431205077253424d525912050763424358455e5950115558534e0a7f5e1205741207761207767e1205005a1205075e5943524552444352531205075e591205075b525645595e59501205075a58455212050756555842431205077253424d525912050743424358455e595019120776120776644342535259431205004412050750455653521204761205071207766442555d5254434412050758511205075e59435245524443120476120507120776120776635f56595c1205074e584216"
+              class="btn btn-email btn-full"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.7"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+                />
+                <polyline points="22,6 12,13 2,6" />
+              </svg>
+              Email us
+            </a>
+          </div>
+          <p class="card-fineprint">
+            First consultation is always complimentary.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── Footer ─── -->
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div class="footer-brand">
+          <img src="eduzen_logo.png" alt="Eduzen" />
+          <div>
+            <span class="footer-name">Eduzen</span>
+            <p>
+              Global Academic Enrichment Program<br />&copy; 2026 Eduzen
+              Institution. All rights reserved.
+            </p>
+          </div>
+        </div>
+        <div class="footer-links">
+          <a href="#subjects">Subjects</a>
+          <a href="#educator">The Educator</a>
+          <a href="#why-us">Why Eduzen</a>
+          <a href="#worksheets">Worksheets</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </div>
+    </footer>
+
+    <script
+      data-cfasync="false"
+      src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"
+    ></script>
+    <script>
+      // Mobile menu toggle
+      const toggle = document.getElementById("navToggle");
+      const links = document.getElementById("navLinks");
+      toggle.addEventListener("click", () => {
+        links.classList.toggle("open");
+        toggle.classList.toggle("active");
+      });
+      links.querySelectorAll("a").forEach((a) => {
+        a.addEventListener("click", () => {
+          links.classList.remove("open");
+          toggle.classList.remove("active");
+        });
+      });
+      // Navbar scroll effect
+      window.addEventListener("scroll", () => {
+        document
+          .getElementById("navbar")
+          .classList.toggle("scrolled", window.scrollY > 40);
+      });
+    </script>
+  </body>
+</html>
