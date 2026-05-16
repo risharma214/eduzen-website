@@ -70,7 +70,7 @@
         font-size: 16px;
         -webkit-font-smoothing: antialiased;
         letter-spacing: -0.005em;
-        overflow-x: hidden;
+        overflow-x: clip;
       }
 
       img {
@@ -538,11 +538,15 @@
       }
 
       .feature-photo {
-        /* aspect-ratio: 4/5; */
         background: var(--cream);
         overflow: hidden;
         margin-bottom: 20px;
         position: relative;
+      }
+      .feature-photo img {
+        width: 100%;
+        height: auto;
+        display: block;
       }
 
       .feature-caption {
@@ -744,13 +748,66 @@
       }
 
       .subject-foot {
-        font-size: 0.74rem;
-        text-transform: uppercase;
-        letter-spacing: 2px;
-        color: var(--text-l);
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
         padding-top: 18px;
         border-top: 1px solid var(--line);
-        font-weight: 600;
+      }
+
+      .subject-ws {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-family: var(--font-sans);
+        font-size: 0.72rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        color: var(--copper);
+        padding: 8px 14px;
+        border: 1px solid var(--copper);
+        border-radius: 2px;
+        white-space: nowrap;
+        transition: var(--transition);
+      }
+      .subject-ws svg {
+        width: 13px;
+        height: 13px;
+        flex-shrink: 0;
+        transition: transform 0.3s ease;
+      }
+      .subject-ws:hover {
+        background: var(--copper);
+        color: var(--white);
+        transform: translateY(-1px);
+        box-shadow: 0 6px 16px rgba(184, 115, 51, 0.24);
+      }
+      .subject-ws:hover svg {
+        transform: translateY(1px);
+      }
+
+      .subject-grade-line {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 14px;
+        flex-wrap: wrap;
+        font-size: 0.82rem;
+        color: var(--text-m);
+        letter-spacing: 0.04em;
+        margin-bottom: 22px;
+      }
+      .grade-pill {
+        display: inline-block;
+        padding: 6px 14px;
+        background: var(--navy);
+        color: var(--ivory);
+        font-size: 0.7rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        border-radius: 2px;
       }
 
       .curricula-strip {
@@ -887,27 +944,42 @@
 
       .env-gallery {
         display: grid;
-        grid-template-columns: 1.4fr 1fr 1fr;
-        grid-template-rows: auto;
+        grid-template-columns: 1.2fr 1fr;
         gap: 24px;
         margin-bottom: 28px;
       }
 
       .env-card {
         background: var(--white);
-        padding: 14px 14px 0;
+        padding: 14px;
         box-shadow: var(--shadow);
         transition: var(--transition);
+        display: flex;
+        flex-direction: column;
       }
       .env-card:hover {
         transform: translateY(-4px);
         box-shadow: var(--shadow-h);
       }
-      .env-card .img-placeholder {
-        aspect-ratio: 4/3;
+      .env-card-tall {
+        grid-row: 1 / span 2;
       }
-      .env-card-tall .img-placeholder {
-        aspect-ratio: 3/4;
+      .env-photo {
+        position: relative;
+        aspect-ratio: 4 / 3;
+        overflow: hidden;
+        background: var(--cream);
+      }
+      .env-card-tall .env-photo {
+        flex: 1;
+        aspect-ratio: auto;
+        min-height: 0;
+      }
+      .env-photo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
       }
 
       .env-card figcaption {
@@ -1353,9 +1425,11 @@
 
       .testimonial-grid {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(2, 1fr);
         gap: 32px;
-        align-items: start;
+        align-items: stretch;
+        max-width: 980px;
+        margin: 0 auto;
       }
 
       .testimonial-card {
@@ -1372,14 +1446,17 @@
 
       .quote-mark {
         position: absolute;
-        top: -10px;
-        left: 22px;
+        top: -28px;
+        left: 18px;
         font-family: var(--font-serif);
         font-size: 4rem;
         color: var(--copper);
         background: var(--bg);
         line-height: 1;
         padding: 0 10px;
+        /* height: 24px;
+        overflow: visible;
+        pointer-events: none; */
       }
 
       .testimonial-card p {
@@ -1628,8 +1705,8 @@
         .env-card-tall {
           grid-column: 1 / -1;
         }
-        .env-card-tall .img-placeholder {
-          aspect-ratio: 16/9;
+        .env-card-tall .env-photo {
+          aspect-ratio: 16 / 9;
         }
         .features-grid {
           grid-template-columns: repeat(2, 1fr);
@@ -1661,7 +1738,16 @@
           padding: 0 22px;
         }
         .nav-logo-tag {
-          display: none;
+          display: block;
+          font-size: 0.6rem;
+          letter-spacing: 1.5px;
+        }
+        .nav-logo img {
+          width: 42px;
+          height: 42px;
+        }
+        .nav-logo-name {
+          font-size: 1.2rem;
         }
         .nav-links {
           position: fixed;
@@ -1691,16 +1777,39 @@
         .hero h1 {
           font-size: clamp(2rem, 8vw, 2.6rem);
         }
+        .eyebrow {
+          display: none;
+        }
         .hero-meta {
-          grid-template-columns: 1fr 1fr;
-          gap: 22px;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 14px;
         }
         .meta-award {
           grid-column: 1 / -1;
+          order: -1;
+          flex-direction: row;
+          justify-content: center;
+          padding: 0 0 16px;
+          border-left: none;
+          border-bottom: 1px solid var(--line);
+          margin-bottom: 6px;
+          text-align: left;
         }
-        .feature-photo {
-          aspect-ratio: 3/4;
+        .meta-item {
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+          gap: 6px;
         }
+        .meta-num {
+          font-size: 1.65rem;
+          justify-content: center;
+        }
+        .meta-label {
+          font-size: 0.7rem;
+          line-height: 1.3;
+        }
+        /* .feature-photo: keep image's natural ratio on mobile to avoid letterboxing */
 
         .subjects,
         .why-us,
@@ -1723,11 +1832,54 @@
         .feature {
           padding: 36px 28px;
         }
+        /* Inside the Classroom → horizontal carousel (captions hidden) */
         .env-gallery {
-          grid-template-columns: 1fr;
+          display: flex;
+          grid-template-columns: none;
+          overflow-x: auto;
+          overflow-y: hidden;
+          scroll-snap-type: x mandatory;
+          gap: 14px;
+          margin: 0 -22px;
+          padding: 4px 22px 18px;
+          -webkit-overflow-scrolling: touch;
+          scrollbar-width: none;
         }
+        .env-gallery::-webkit-scrollbar {
+          display: none;
+        }
+        .env-card,
         .env-card-tall {
+          flex: 0 0 78%;
           grid-column: auto;
+          scroll-snap-align: start;
+        }
+        .env-card .env-photo,
+        .env-card-tall .env-photo {
+          aspect-ratio: 4 / 3;
+        }
+
+        /* Testimonials → horizontal carousel */
+        .testimonial-grid {
+          display: flex;
+          grid-template-columns: none;
+          overflow-x: auto;
+          overflow-y: hidden;
+          scroll-snap-type: x mandatory;
+          gap: 14px;
+          max-width: none;
+          margin: 0 -22px;
+          padding: 4px 22px 18px;
+          -webkit-overflow-scrolling: touch;
+          scrollbar-width: none;
+          align-items: stretch;
+        }
+        .testimonial-grid::-webkit-scrollbar {
+          display: none;
+        }
+        .testimonial-card {
+          flex: 0 0 86%;
+          scroll-snap-align: start;
         }
         .worksheet-stage {
           grid-template-columns: 1fr;
@@ -1787,15 +1939,18 @@
           font-size: 0.88rem;
         }
         .hero-meta {
-          grid-template-columns: 1fr;
+          gap: 8px;
         }
-        .meta-item {
-          flex-direction: row;
-          align-items: baseline;
-          gap: 14px;
+        .meta-num {
+          font-size: 1.4rem;
         }
-        .meta-award {
-          flex-direction: row;
+        .meta-label {
+          font-size: 0.62rem;
+          letter-spacing: 0.02em;
+        }
+        .meta-award svg {
+          width: 26px;
+          height: 26px;
         }
       }
 
@@ -1919,7 +2074,7 @@
           <img src="eduzen_logo.png" alt="Eduzen Logo" />
           <span class="nav-logo-text">
             <span class="nav-logo-name">Eduzen</span>
-            <span class="nav-logo-tag">Global Academic Enrichment</span>
+            <span class="nav-logo-tag">Global Academic Enrichment Program</span>
           </span>
         </a>
         <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
@@ -1929,7 +2084,6 @@
           <li><a href="#subjects">Subjects</a></li>
           <li><a href="#educator">The Educator</a></li>
           <li><a href="#why-us">Why Eduzen</a></li>
-          <li><a href="#worksheets">Worksheets</a></li>
           <li><a href="#contact" class="nav-cta">Get in Touch</a></li>
         </ul>
       </div>
@@ -1939,9 +2093,7 @@
     <header class="hero" id="hero">
       <div class="container hero-grid">
         <div class="hero-text">
-          <p class="eyebrow">
-            <span class="eyebrow-rule"></span>Global Academic Enrichment Program
-          </p>
+          <p class="eyebrow">Global Academic Enrichment Program</p>
           <h1>
             Unlock your child's
             <em class="accent-serif">full potential</em>
@@ -2075,7 +2227,29 @@
               <li>Composition &amp; rhetoric</li>
               <li>Grammar &amp; vocabulary mastery</li>
             </ul>
-            <div class="subject-foot">V — X · IB · IGCSE · CBSE</div>
+            <div class="subject-foot">
+              <a
+                href="worksheets/english.pdf"
+                target="_blank"
+                rel="noopener"
+                class="subject-ws"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+                  />
+                  <polyline points="14 2 14 8 20 8" />
+                </svg>
+                Sample Worksheet
+              </a>
+            </div>
           </article>
 
           <article class="subject-card">
@@ -2093,7 +2267,29 @@
               <li>Lab-aware problem solving</li>
               <li>Exam-style application practice</li>
             </ul>
-            <div class="subject-foot">V — X · IB · IGCSE · CBSE</div>
+            <div class="subject-foot">
+              <a
+                href="worksheets/science.pdf"
+                target="_blank"
+                rel="noopener"
+                class="subject-ws"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+                  />
+                  <polyline points="14 2 14 8 20 8" />
+                </svg>
+                Sample Worksheet
+              </a>
+            </div>
           </article>
 
           <article class="subject-card">
@@ -2111,7 +2307,29 @@
               <li>Step-by-step problem strategy</li>
               <li>Higher-order &amp; competition prep</li>
             </ul>
-            <div class="subject-foot">V — X · IB · IGCSE · CBSE</div>
+            <div class="subject-foot">
+              <a
+                href="worksheets/maths.pdf"
+                target="_blank"
+                rel="noopener"
+                class="subject-ws"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+                  />
+                  <polyline points="14 2 14 8 20 8" />
+                </svg>
+                Sample Worksheet
+              </a>
+            </div>
           </article>
 
           <article class="subject-card">
@@ -2129,10 +2347,36 @@
               <li>Script, grammar &amp; comprehension</li>
               <li>Examination-board specialisation</li>
             </ul>
-            <div class="subject-foot">P5 — A &amp; O Levels</div>
+            <div class="subject-foot">
+              <a
+                href="worksheets/hindi.pdf"
+                target="_blank"
+                rel="noopener"
+                class="subject-ws"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+                  />
+                  <polyline points="14 2 14 8 20 8" />
+                </svg>
+                Sample Worksheet
+              </a>
+            </div>
           </article>
         </div>
 
+        <p class="subject-grade-line">
+          <span class="grade-pill">Grades VII–X</span>
+          IGCSE / CBSE · equivalent in PSLE, A &amp; O Levels
+        </p>
         <div class="curricula-strip">
           <span class="strip-label">As taught across</span>
           <span class="curricula-badge">IB</span>
@@ -2208,83 +2452,23 @@
 
         <div class="env-gallery">
           <figure class="env-card env-card-tall">
-            <div class="img-placeholder img-placeholder-photo">
-              <svg
-                viewBox="0 0 64 64"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.3"
-              >
-                <rect x="6" y="10" width="52" height="36" rx="2" />
-                <path d="M6 38l14-14 12 12 8-8 18 18" />
-                <circle cx="44" cy="22" r="4" />
-              </svg>
-              <span
-                >Classroom · wide angle<br /><em
-                  >AI-generated placeholder</em
-                ></span
-              >
+            <div class="env-photo">
+              <img src="images/strip-farewell.jpg" alt="Classroom moment" />
             </div>
-            <figcaption>
-              <span class="fig-num">i.</span>
-              <span class="fig-text"
-                >One-on-one sessions in our flagship study room — light, books,
-                and undivided attention.</span
-              >
-            </figcaption>
           </figure>
 
           <figure class="env-card">
-            <div class="img-placeholder img-placeholder-photo">
-              <svg
-                viewBox="0 0 64 64"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.3"
-              >
-                <rect x="6" y="10" width="52" height="36" rx="2" />
-                <path d="M6 38l14-14 12 12 8-8 18 18" />
-                <circle cx="44" cy="22" r="4" />
-              </svg>
-              <span>Student at work · close-up</span>
+            <div class="env-photo">
+              <img src="images/strip-laptop.jpg" alt="Student at work" />
             </div>
-            <figcaption>
-              <span class="fig-num">ii.</span>
-              <span class="fig-text"
-                >Annotated worksheets — feedback in the margins, the way it
-                ought to be.</span
-              >
-            </figcaption>
           </figure>
 
           <figure class="env-card">
-            <div class="img-placeholder img-placeholder-photo">
-              <svg
-                viewBox="0 0 64 64"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.3"
-              >
-                <rect x="6" y="10" width="52" height="36" rx="2" />
-                <path d="M6 38l14-14 12 12 8-8 18 18" />
-                <circle cx="44" cy="22" r="4" />
-              </svg>
-              <span>Online session · screen view</span>
+            <div class="env-photo">
+              <img src="images/strip-zoom.jpg" alt="Online tutoring session" />
             </div>
-            <figcaption>
-              <span class="fig-num">iii.</span>
-              <span class="fig-text"
-                >Online classes designed for genuine engagement — across time
-                zones, never across purpose.</span
-              >
-            </figcaption>
           </figure>
         </div>
-
-        <p class="placeholder-note">
-          Image slots above accept AI-generated visuals of classrooms, students
-          and study environments.
-        </p>
       </div>
     </section>
 
@@ -2519,258 +2703,11 @@
       </div>
     </section>
 
-    <!-- ─── Sample Worksheets ─── -->
-    <section class="worksheets" id="worksheets">
-      <div class="container">
-        <div class="section-head">
-          <span class="section-kicker">05 — The materials</span>
-          <h2 class="section-title">
-            A look at our <em class="accent-serif">worksheets.</em>
-          </h2>
-          <p class="section-lede">
-            Every Eduzen student works through purpose-built worksheets —
-            drafted, sequenced and annotated to match how the topic is actually
-            taught. A few examples are below.
-          </p>
-        </div>
-
-        <div class="worksheet-stage">
-          <!-- Mathematics worksheet -->
-          <article class="paper paper-rotate-l">
-            <div class="paper-head">
-              <div class="paper-head-l">
-                <div class="paper-brand">
-                  <img src="eduzen_logo.png" alt="" /><span>Eduzen</span>
-                </div>
-                <span class="paper-meta"
-                  >Mathematics · Class IX · Worksheet 04</span
-                >
-              </div>
-              <div class="paper-head-r">
-                <span>Name: __________________</span>
-                <span>Date: ________</span>
-              </div>
-            </div>
-            <h3 class="paper-title">Quadratic Equations &amp; Their Roots</h3>
-            <p class="paper-intro">
-              Solve the following. Show all working. <em>(8 marks each)</em>
-            </p>
-            <ol class="paper-questions">
-              <li>
-                <strong>1.</strong> Solve for <em>x</em>: &nbsp;
-                <span class="eq">x² &minus; 7x + 12 = 0</span>
-              </li>
-              <li>
-                <strong>2.</strong> Find the discriminant and nature of roots:
-                &nbsp; <span class="eq">3x² + 5x &minus; 2 = 0</span>
-              </li>
-              <li>
-                <strong>3.</strong> If one root of
-                <span class="eq">x² + kx + 8 = 0</span> is <em>2</em>, find
-                <em>k</em> and the other root.
-              </li>
-              <li>
-                <strong>4.</strong> A rectangular plot has a length 3 m more
-                than its breadth and an area of 54 m². Find its dimensions.
-              </li>
-              <li>
-                <strong>5.</strong> Form a quadratic equation whose roots are
-                <em>3 + √2</em> and <em>3 − √2</em>.
-              </li>
-            </ol>
-            <div class="paper-foot">
-              <span>Total: 40</span><span>Page 1 of 2</span>
-            </div>
-            <div class="paper-stamp">Eduzen · Practice Set</div>
-          </article>
-
-          <!-- Science worksheet -->
-          <article class="paper paper-rotate-r">
-            <div class="paper-head">
-              <div class="paper-head-l">
-                <div class="paper-brand">
-                  <img src="eduzen_logo.png" alt="" /><span>Eduzen</span>
-                </div>
-                <span class="paper-meta">Physics · IGCSE · Worksheet 07</span>
-              </div>
-              <div class="paper-head-r">
-                <span>Name: __________________</span>
-                <span>Date: ________</span>
-              </div>
-            </div>
-            <h3 class="paper-title">Forces, Mass &amp; Acceleration</h3>
-            <p class="paper-intro">
-              Use <em>F = ma</em>. Take g = 9.8 m s⁻². Round to 2 s.f.
-            </p>
-
-            <div class="paper-diagram" aria-hidden="true">
-              <svg viewBox="0 0 320 110" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                  <marker
-                    id="arr"
-                    viewBox="0 0 10 10"
-                    refX="8"
-                    refY="5"
-                    markerWidth="6"
-                    markerHeight="6"
-                    orient="auto"
-                  >
-                    <path d="M0,0 L10,5 L0,10 z" fill="#1e3a5f" />
-                  </marker>
-                </defs>
-                <line
-                  x1="20"
-                  y1="90"
-                  x2="300"
-                  y2="90"
-                  stroke="#1e3a5f"
-                  stroke-width="1"
-                />
-                <g>
-                  <rect
-                    x="120"
-                    y="55"
-                    width="55"
-                    height="35"
-                    fill="none"
-                    stroke="#1e3a5f"
-                    stroke-width="1.4"
-                  />
-                  <text
-                    x="138"
-                    y="78"
-                    font-family="Manrope, sans-serif"
-                    font-size="12"
-                    fill="#1e3a5f"
-                  >
-                    m
-                  </text>
-                  <circle cx="130" cy="92" r="4" fill="none" stroke="#1e3a5f" />
-                  <circle cx="165" cy="92" r="4" fill="none" stroke="#1e3a5f" />
-                </g>
-                <line
-                  x1="175"
-                  y1="72"
-                  x2="240"
-                  y2="72"
-                  stroke="#b87333"
-                  stroke-width="1.4"
-                  marker-end="url(#arr)"
-                />
-                <text
-                  x="200"
-                  y="65"
-                  font-family="Playfair Display, serif"
-                  font-style="italic"
-                  font-size="13"
-                  fill="#b87333"
-                >
-                  F
-                </text>
-                <line
-                  x1="120"
-                  y1="72"
-                  x2="80"
-                  y2="72"
-                  stroke="#1e3a5f"
-                  stroke-width="1"
-                  stroke-dasharray="3 3"
-                  marker-end="url(#arr)"
-                />
-                <text
-                  x="86"
-                  y="65"
-                  font-family="Manrope, sans-serif"
-                  font-size="11"
-                  fill="#5a6d80"
-                >
-                  friction
-                </text>
-              </svg>
-            </div>
-
-            <ol class="paper-questions">
-              <li>
-                <strong>1.</strong> A 4 kg trolley is pulled with a 20 N force.
-                Friction = 4 N. Find <em>a</em>.
-              </li>
-              <li>
-                <strong>2.</strong> Sketch the free-body diagram for an object
-                in free-fall and one on a slope.
-              </li>
-              <li>
-                <strong>3.</strong> Explain, in your own words, Newton's third
-                law with a real-world example.
-              </li>
-            </ol>
-            <div class="paper-foot">
-              <span>Total: 24</span><span>Page 1 of 1</span>
-            </div>
-            <div class="paper-stamp">Eduzen · Practice Set</div>
-          </article>
-
-          <!-- English worksheet -->
-          <article class="paper paper-rotate-l paper-third">
-            <div class="paper-head">
-              <div class="paper-head-l">
-                <div class="paper-brand">
-                  <img src="eduzen_logo.png" alt="" /><span>Eduzen</span>
-                </div>
-                <span class="paper-meta">English · IB MYP · Worksheet 12</span>
-              </div>
-              <div class="paper-head-r">
-                <span>Name: __________________</span>
-                <span>Date: ________</span>
-              </div>
-            </div>
-            <h3 class="paper-title">Close Reading: Voice &amp; Tone</h3>
-            <p class="paper-intro">
-              Read the passage carefully. Underline language that reveals the
-              narrator's attitude.
-            </p>
-
-            <blockquote class="paper-passage">
-              "The morning train was, as ever, an apology for one — late,
-              breathless, and crowded with the same weary commuters who had
-              given up hoping for better. And yet, in the slant of light through
-              the carriage windows, there was something almost forgiving about
-              the city today."
-            </blockquote>
-
-            <ol class="paper-questions">
-              <li>
-                <strong>1.</strong> Identify two words that convey the
-                narrator's <em>frustration</em>.
-              </li>
-              <li>
-                <strong>2.</strong> How does the tone shift in the second
-                sentence? Refer to specific language.
-              </li>
-              <li>
-                <strong>3.</strong> Rewrite the passage in a tone of
-                <em>excitement</em>. Keep the imagery; change the mood.
-              </li>
-            </ol>
-            <div class="paper-foot">
-              <span>Total: 20</span><span>Page 1 of 1</span>
-            </div>
-            <div class="paper-stamp">Eduzen · Practice Set</div>
-          </article>
-        </div>
-
-        <p class="worksheet-note">
-          Worksheets shown are representative samples. Every learner receives a
-          custom-sequenced bank tailored to their board, grade and current
-          strengths.
-        </p>
-      </div>
-    </section>
-
     <!-- ─── Testimonials ─── -->
     <section class="testimonials" id="testimonials">
       <div class="container">
         <div class="section-head">
-          <span class="section-kicker">06 — In their words</span>
+          <span class="section-kicker">05 — In their words</span>
           <h2 class="section-title">From parents &amp; students.</h2>
         </div>
 
@@ -2778,44 +2715,42 @@
           <blockquote class="testimonial-card">
             <span class="quote-mark">&ldquo;</span>
             <p>
-              My daughter's confidence in Maths has completely transformed since
-              she started with Eduzen. The personalised approach makes all the
-              difference.
+              I want to compliment Rashmi Ma'am on her guidance. Her lessons are
+              consistently well-structured and easy to follow, which has made
+              learning much more enjoyable. I especially appreciate how she
+              explains complex topics in an easy-to-understand manner. She
+              creates a supportive and encouraging atmosphere in the classroom,
+              which makes it simpler for students to ask questions and take part
+              in discussions. Her dedication and tenacity have a big influence
+              on my comprehension of the subject. Overall, I truly enjoy her
+              classes and am motivated to learn more. Her efforts and commitment
+              to my success are greatly appreciated.
             </p>
             <footer>
-              <strong>Parent of Class VIII student</strong>
+              <strong>Vaishnavi, Grade 9</strong>
               <span>IGCSE · Singapore</span>
-            </footer>
-          </blockquote>
-
-          <blockquote class="testimonial-card testimonial-tall">
-            <span class="quote-mark">&ldquo;</span>
-            <p>
-              I used to dread Science, but now it's my favourite subject. The
-              way concepts are explained just <em>clicks</em>. I actually look
-              forward to my Wednesday classes — which I never thought I'd say.
-            </p>
-            <footer>
-              <strong>Class IX student</strong>
-              <span>CBSE · New Delhi</span>
             </footer>
           </blockquote>
 
           <blockquote class="testimonial-card">
             <span class="quote-mark">&ldquo;</span>
             <p>
-              Excellent resources and truly flexible scheduling. We've been with
-              Eduzen for two years and wouldn't go anywhere else.
+              I first studied with my English teacher in Class 7 and I am still
+              learning from her now. She is a very well-qualified teacher who
+              explains everything clearly and makes English easy to understand.
+              Her teaching style is patient and effective, and she always
+              encourages me to do better. Since I started studying with her, my
+              grades have improved a lot and I feel much more confident in the
+              subject. She pays attention to my progress and makes learning
+              enjoyable. I am grateful for her guidance and the positive impact
+              she has had on my studies.
             </p>
             <footer>
-              <strong>Parent of Class VII student</strong>
-              <span>IB · Dubai</span>
+              <strong>Inaya, Grade 8</strong>
+              <span>CBSE</span>
             </footer>
           </blockquote>
         </div>
-        <p class="placeholder-note">
-          * Sample testimonials — replace with real ones.
-        </p>
       </div>
     </section>
 
@@ -2823,7 +2758,7 @@
     <section class="contact" id="contact">
       <div class="container contact-grid">
         <div class="contact-text">
-          <span class="section-kicker on-dark">07 — Begin</span>
+          <span class="section-kicker on-dark">06 — Begin</span>
           <h2 class="section-title on-dark">
             Let's design a plan
             <em class="accent-serif">for your child.</em>
@@ -2955,7 +2890,6 @@
           <a href="#subjects">Subjects</a>
           <a href="#educator">The Educator</a>
           <a href="#why-us">Why Eduzen</a>
-          <a href="#worksheets">Worksheets</a>
           <a href="#contact">Contact</a>
         </div>
       </div>
