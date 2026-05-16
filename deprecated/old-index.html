@@ -1,0 +1,757 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Eduzen — Global Academic Enrichment</title>
+    <meta
+      name="description"
+      content="Eduzen offers expert private tutoring in English, Science, Mathematics & Hindi for classes V–X across IB, IGCSE, and CBSE curricula."
+    />
+    <link rel="icon" href="eduzen_logo.png" type="image/png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair:opsz,wght@5..1200,400;5..1200,500;5..1200,600;5..1200,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- ─── Navigation ─── -->
+    <nav class="navbar" id="navbar">
+      <div class="container nav-inner">
+        <a href="#" class="nav-logo">
+          <img src="eduzen_logo.png" alt="Eduzen Logo" />
+          <span>Eduzen</span>
+        </a>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#subjects">Subjects</a></li>
+          <li><a href="#why-us">Why Us</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#classroom">Classroom</a></li>
+          <li><a href="#resources">Resources</a></li>
+          <li><a href="#contact" class="nav-cta">Get in Touch</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- ─── Hero ─── -->
+    <header class="hero" id="hero">
+      <div class="container hero-content">
+        <div class="hero-text">
+          <p class="hero-tag">Global Academic Enrichment Program</p>
+          <h1>
+            Unlock your child's <span class="accent">full potential</span>
+          </h1>
+          <p class="hero-sub">
+            Expert private tutoring in English, Science, Mathematics &amp; Hindi
+            for classes&nbsp;V&ndash;X — across <strong>IB</strong>,
+            <strong>IGCSE</strong>, and <strong>CBSE</strong> curricula.
+          </p>
+          <div class="hero-actions">
+            <a
+              href="https://wa.me/919810448905?text=Hi%2C%20I%27m%20interested%20in%20Eduzen%20tutoring.%20Could%20you%20share%20more%20details%3F"
+              target="_blank"
+              rel="noopener"
+              class="btn btn-primary"
+              >Book a Session</a
+            >
+            <a href="#subjects" class="btn btn-outline">Explore Subjects</a>
+          </div>
+          <div class="hero-trust">
+            <div class="trust-item">
+              <strong>22+</strong><span>Years Teaching</span>
+            </div>
+            <div class="trust-divider"></div>
+            <div class="trust-item">
+              <strong>15+</strong><span>Yrs International</span>
+            </div>
+            <div class="trust-divider"></div>
+            <div class="trust-item">
+              <strong>★</strong><span>Award-Winning</span>
+            </div>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="hero-logo">
+            <img src="eduzen_logo.png" alt="Eduzen Institution" />
+          </div>
+          <div class="hero-badge">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <circle cx="12" cy="8" r="6" />
+              <path d="M15.5 13.5L17 22l-5-3-5 3 1.5-8.5" />
+            </svg>
+            <div>
+              <strong>Best Teacher Award</strong>
+              <span>New Delhi · 2010</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- ─── About ─── -->
+    <section class="about" id="about">
+      <div class="container about-inner">
+        <div class="about-grid">
+          <div class="about-text">
+            <p class="about-eyebrow">About the Educator</p>
+            <h2 class="section-title">Two decades of shaping young minds</h2>
+            <p>
+              With over
+              <strong>22 years of dedicated teaching experience</strong>, the
+              founder of Eduzen brings a rare combination of depth and breadth
+              to every lesson. Having served as a
+              <strong>Level Head in India</strong> and taught extensively within
+              the <strong>Cambridge Curriculum</strong>, they understand what it
+              takes to help students excel — regardless of the board or country.
+            </p>
+            <p>
+              At Eduzen, every student receives a learning plan shaped around
+              their strengths, gaps, and goals. Whether preparing for board
+              exams, entrance tests, or simply building a stronger foundation,
+              we meet each learner exactly where they are.
+            </p>
+            <div class="about-stats">
+              <div class="stat">
+                <span class="stat-number">22+</span>
+                <span class="stat-label">Years of Experience</span>
+              </div>
+              <div class="stat">
+                <span class="stat-number">15+</span>
+                <span class="stat-label">Years in International Curricula</span>
+              </div>
+              <div class="stat">
+                <span class="stat-number">4</span>
+                <span class="stat-label">Subjects Offered</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Award Photo -->
+          <figure class="about-photo">
+            <!-- TODO: replace src with the actual award photo file -->
+            <div class="about-photo-frame">
+              <img
+                src="images/award-ceremony.jpg"
+                alt="Receiving the Best Teacher Award from the Government of India, New Delhi, 2010"
+                onerror="
+                  this.parentElement.classList.add('photo-placeholder');
+                  this.style.display = 'none';
+                "
+              />
+              <div class="photo-fallback">
+                <svg
+                  viewBox="0 0 48 48"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <rect x="6" y="10" width="36" height="28" rx="2" />
+                  <circle cx="24" cy="24" r="6" />
+                  <path d="M16 10l3-4h10l3 4" />
+                </svg>
+                <span>Award Ceremony Photo</span>
+                <small>images/award-ceremony.jpg</small>
+              </div>
+            </div>
+            <figcaption>
+              <span class="photo-tag">★ Recognition</span>
+              Receiving the <strong>Best Teacher Award</strong> — New Delhi,
+              India · 2010
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── Subjects ─── -->
+    <section class="subjects" id="subjects">
+      <div class="container">
+        <h2 class="section-title">What We Teach</h2>
+        <p class="section-subtitle">
+          Tailored instruction across core disciplines, designed for
+          international and national curricula
+        </p>
+
+        <div class="subject-list">
+          <div class="subject-row">
+            <span class="subject-num">01</span>
+            <div class="subject-body">
+              <h3>English</h3>
+              <div class="subject-accent"></div>
+              <p>
+                Literature, language, grammar, and creative writing — building
+                confident communicators.
+              </p>
+            </div>
+          </div>
+          <div class="subject-row">
+            <span class="subject-num">02</span>
+            <div class="subject-body">
+              <h3>Science</h3>
+              <div class="subject-accent"></div>
+              <p>
+                Physics, Chemistry &amp; Biology — concept-driven learning with
+                real-world applications.
+              </p>
+            </div>
+          </div>
+          <div class="subject-row">
+            <span class="subject-num">03</span>
+            <div class="subject-body">
+              <h3>Mathematics</h3>
+              <div class="subject-accent"></div>
+              <p>
+                From fundamentals to advanced problem-solving — structured for
+                clarity and confidence.
+              </p>
+            </div>
+          </div>
+          <div class="subject-row">
+            <span class="subject-num">04</span>
+            <div class="subject-body">
+              <h3>Hindi</h3>
+              <div class="subject-accent"></div>
+              <p>
+                Primary 5 through A &amp; O Levels — reading, writing, and
+                fluency for all proficiencies.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="curricula-strip">
+          <span class="curricula-badge">IB</span>
+          <span class="curricula-badge">IGCSE</span>
+          <span class="curricula-badge">CBSE</span>
+          <span class="curricula-badge">Cambridge</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── Why Us ─── -->
+    <section class="why-us" id="why-us">
+      <div class="container">
+        <h2 class="section-title">Why Families Choose Eduzen</h2>
+        <div class="features-grid">
+          <div class="feature">
+            <div class="feature-icon">
+              <svg
+                viewBox="0 0 48 48"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <circle cx="24" cy="24" r="20" />
+                <path d="M24 4a28 28 0 0 1 0 40" />
+                <path d="M24 4a28 28 0 0 0 0 40" />
+                <line x1="4" y1="24" x2="44" y2="24" />
+                <path d="M6 14h36" />
+                <path d="M6 34h36" />
+              </svg>
+            </div>
+            <h4>Flexible Learning</h4>
+            <p>
+              Online and in-person classes available across time zones — learn
+              from anywhere in the world.
+            </p>
+          </div>
+
+          <div class="feature">
+            <div class="feature-icon">
+              <svg
+                viewBox="0 0 48 48"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <rect x="6" y="6" width="36" height="36" rx="4" />
+                <line x1="6" y1="18" x2="42" y2="18" />
+                <line x1="18" y1="6" x2="18" y2="42" />
+              </svg>
+            </div>
+            <h4>Comprehensive Resources</h4>
+            <p>
+              Expertly curated notes, study materials, and practice worksheets
+              for every topic.
+            </p>
+          </div>
+
+          <div class="feature">
+            <div class="feature-icon">
+              <svg
+                viewBox="0 0 48 48"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M8 40V16l16-8 16 8v24" />
+                <path d="M8 40h32" />
+                <rect x="18" y="26" width="12" height="14" />
+                <line x1="24" y1="16" x2="24" y2="22" />
+                <circle cx="24" cy="22" r="3" />
+              </svg>
+            </div>
+            <h4>Concept Clarity</h4>
+            <p>
+              Interactive doubt-clearing sessions with personalized attention —
+              no question goes unanswered.
+            </p>
+          </div>
+
+          <div class="feature">
+            <div class="feature-icon">
+              <svg
+                viewBox="0 0 48 48"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M24 4l6 12 13 2-9 9 2 13-12-6-12 6 2-13-9-9 13-2z" />
+              </svg>
+            </div>
+            <h4>Proven Track Record</h4>
+            <p>
+              22+ years of teaching experience, including 15+ years specializing
+              in CBSE &amp; international curricula.
+            </p>
+          </div>
+
+          <div class="feature">
+            <div class="feature-icon">
+              <svg
+                viewBox="0 0 48 48"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <circle cx="24" cy="14" r="10" />
+                <path d="M14 44V34a10 10 0 0 1 20 0v10" />
+                <line x1="24" y1="24" x2="24" y2="32" />
+                <line x1="20" y1="28" x2="28" y2="28" />
+              </svg>
+            </div>
+            <h4>Global Academic Leadership</h4>
+            <p>
+              Former Level Head (India) with extensive international teaching
+              &amp; leadership in the Cambridge Curriculum.
+            </p>
+          </div>
+
+          <div class="feature">
+            <div class="feature-icon">
+              <svg
+                viewBox="0 0 48 48"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <circle cx="24" cy="12" r="8" />
+                <path d="M16 20l-4 20h24l-4-20" />
+                <path d="M20 30h8" />
+                <path d="M22 26v8" />
+                <path d="M26 26v8" />
+              </svg>
+            </div>
+            <h4>Award-Winning Educator</h4>
+            <p>Winner of the Best Teacher Award — New Delhi, India, 2010.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── Inside the Classroom ─── -->
+    <section class="classroom" id="classroom">
+      <div class="container">
+        <p class="about-eyebrow center">Inside the Classroom</p>
+        <h2 class="section-title centered">
+          A learning environment that inspires
+        </h2>
+        <p class="section-subtitle">
+          Whether online or in-person, every session is designed for focus,
+          engagement, and meaningful progress.
+        </p>
+
+        <!-- ─── Image Strip ─── -->
+        <section class="image-strip" aria-label="Learning environment">
+          <!-- TODO: replace these with AI-generated classroom / student photos -->
+          <div class="strip-img">
+            <img
+              src="images/strip-farewell.jpg"
+              alt="Bright modern classroom"
+              onerror="
+                this.parentElement.classList.add('strip-placeholder');
+                this.style.display = 'none';
+              "
+            /><span class="strip-fallback">Classroom Setting</span>
+          </div>
+          <div class="strip-img">
+            <img
+              src="images/strip-laptop.jpg"
+              alt="Students engaged in learning"
+              onerror="
+                this.parentElement.classList.add('strip-placeholder');
+                this.style.display = 'none';
+              "
+            /><span class="strip-fallback">Engaged Learners</span>
+          </div>
+          <div class="strip-img">
+            <img
+              src="images/strip-zoom.jpg"
+              alt="Online tutoring session"
+              onerror="
+                this.parentElement.classList.add('strip-placeholder');
+                this.style.display = 'none';
+              "
+            /><span class="strip-fallback">Online Sessions</span>
+          </div>
+          <div class="strip-img">
+            <img
+              src="images/strip-classroom.jpg"
+              alt="Study materials and resources"
+              onerror="
+                this.parentElement.classList.add('strip-placeholder');
+                this.style.display = 'none';
+              "
+            /><span class="strip-fallback">Curated Resources</span>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <!-- ─── Testimonials ─── -->
+    <section class="testimonials" id="testimonials">
+      <div class="container">
+        <h2 class="section-title">What Parents &amp; Students Say</h2>
+        <div class="testimonial-grid">
+          <blockquote class="testimonial-card">
+            <p>
+              &ldquo;I want to compliment Rashmi Ma'am on her guidance. Her
+              lessons are consistently well-structured and easy to follow, which
+              has made learning much more enjoyable. I especially appreciate how
+              she explains complex topics in an easy-to-understand manner. She
+              creates a supportive and encouraging atmosphere in the classroom,
+              which makes it simpler for students to ask questions and take part
+              in discussions. Her dedication and tenacity have a big influence
+              on my comprehension of the subject. Overall, I truly enjoy her
+              classes and am motivated to learn more. Her efforts and commitment
+              to my success are greatly appreciated.&rdquo;
+            </p>
+            <footer>
+              <strong>Vaishnavi, Grade 9 </strong>
+              <span>IGCSE, Singapore</span>
+            </footer>
+          </blockquote>
+
+          <blockquote class="testimonial-card">
+            <p>
+              &ldquo; I first studied with my English teacher in class 7 and I
+              am still learning from her now . She is a very well - qualified
+              teacher who explains everything clearly and makes English easy to
+              understand . Her teaching style is patient and effective , and she
+              always encourages to do better . Since I started studying with her
+              , my grades have improved a lot and I feel much more confident in
+              the subject . She pays attention to my progress and makes learning
+              enjoyable . I am grateful for her guidance and the positive impact
+              she has had on my studies.&rdquo;
+            </p>
+            <footer>
+              <strong>Inaya, Grade 8</strong>
+              <span>CBSE</span>
+            </footer>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── Resources ─── -->
+    <section class="resources" id="resources">
+      <div class="container">
+        <h2 class="section-title">Sample Resources</h2>
+        <p class="section-subtitle">
+          Get a glimpse of the quality materials our students work with —
+          concept-driven, exam-aligned, and built for clarity.
+        </p>
+        <div class="resource-cards">
+          <a href="temp_ws.pdf" target="_blank" class="resource-card">
+            <div class="resource-thumb">
+              <!-- TODO: replace with worksheet preview image -->
+              <img
+                src="images/ws-math.jpg"
+                alt="Mathematics worksheet preview"
+                onerror="
+                  this.parentElement.classList.add('thumb-placeholder');
+                  this.style.display = 'none';
+                "
+              />
+              <div class="thumb-fallback">
+                <svg
+                  viewBox="0 0 48 48"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M12 4h18l10 10v30H12z" />
+                  <path d="M30 4v10h10" />
+                  <line x1="18" y1="22" x2="34" y2="22" />
+                  <line x1="18" y1="28" x2="34" y2="28" />
+                  <line x1="18" y1="34" x2="28" y2="34" />
+                </svg>
+              </div>
+              <span class="resource-type">Mathematics</span>
+            </div>
+            <div class="resource-body">
+              <h4>Sample Worksheet</h4>
+              <p>
+                Practice worksheet demonstrating our structured approach to
+                concept reinforcement.
+              </p>
+              <span class="resource-link">View PDF &rarr;</span>
+            </div>
+          </a>
+
+          <a href="temp_ws.pdf" target="_blank" class="resource-card">
+            <div class="resource-thumb">
+              <!-- TODO: replace with science worksheet preview -->
+              <img
+                src="images/ws-science.jpg"
+                alt="Science worksheet preview"
+                onerror="
+                  this.parentElement.classList.add('thumb-placeholder');
+                  this.style.display = 'none';
+                "
+              />
+              <div class="thumb-fallback">
+                <svg
+                  viewBox="0 0 48 48"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M18 4v14l-8 18a4 4 0 0 0 4 6h20a4 4 0 0 0 4-6l-8-18V4"
+                  />
+                  <line x1="14" y1="4" x2="34" y2="4" />
+                </svg>
+              </div>
+              <span class="resource-type">Science</span>
+            </div>
+            <div class="resource-body">
+              <h4>Concept Notes — Sample</h4>
+              <p>
+                Topic-wise summary notes built around real-world examples and
+                exam patterns.
+              </p>
+              <span class="resource-link">View PDF &rarr;</span>
+            </div>
+          </a>
+
+          <a href="temp_ws.pdf" target="_blank" class="resource-card">
+            <div class="resource-thumb">
+              <!-- TODO: replace with English worksheet preview -->
+              <img
+                src="images/ws-english.jpg"
+                alt="English worksheet preview"
+                onerror="
+                  this.parentElement.classList.add('thumb-placeholder');
+                  this.style.display = 'none';
+                "
+              />
+              <div class="thumb-fallback">
+                <svg
+                  viewBox="0 0 48 48"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M6 8h36v32H6z" />
+                  <line x1="14" y1="16" x2="34" y2="16" />
+                  <line x1="14" y1="22" x2="34" y2="22" />
+                  <line x1="14" y1="28" x2="28" y2="28" />
+                </svg>
+              </div>
+              <span class="resource-type">English</span>
+            </div>
+            <div class="resource-body">
+              <h4>Comprehension Pack</h4>
+              <p>
+                Reading passages with graded questions to build analytical and
+                writing skills.
+              </p>
+              <span class="resource-link">View PDF &rarr;</span>
+            </div>
+          </a>
+        </div>
+        <p class="placeholder-note">
+          * Additional worksheet previews coming soon
+        </p>
+      </div>
+    </section>
+
+    <!-- ─── Contact / CTA ─── -->
+    <section class="contact" id="contact">
+      <div class="container">
+        <div class="contact-inner">
+          <h2 class="section-title">Get in Touch</h2>
+          <p class="contact-text-p">
+            Ready to give your child the academic edge? Reach out for a free
+            consultation and let's build a learning plan together.
+          </p>
+          <ul class="contact-details">
+            <li>
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M22 16.92v3a2 2 0 0 1-2.18 2 19.86 19.86 0 0 1-8.63-3.07A19.5 19.5 0 0 1 5.15 12.8 19.86 19.86 0 0 1 2.08 4.18 2 2 0 0 1 4.06 2h3a2 2 0 0 1 2 1.72c.13.81.36 1.6.68 2.34a2 2 0 0 1-.45 2.11L8.09 9.4a16 16 0 0 0 6.51 6.51l1.23-1.23a2 2 0 0 1 2.11-.45c.74.32 1.53.55 2.34.68a2 2 0 0 1 1.72 2.01z"
+                />
+              </svg>
+              <a href="tel:+919876748905">+91 98767 48905</a>
+            </li>
+            <li>
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+                />
+                <polyline points="22,6 12,13 2,6" />
+              </svg>
+              <a href="mailto:contact@eduzen.com">contact@eduzen.com</a>
+            </li>
+            <li>
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1 1 18 0z" />
+                <circle cx="12" cy="10" r="3" />
+              </svg>
+              <span>Online &amp; in-person — worldwide</span>
+            </li>
+          </ul>
+          <div class="contact-cta-buttons">
+            <a
+              href="https://wa.me/919876748905?text=Hi%2C%20I%27m%20interested%20in%20Eduzen%20tutoring.%20Could%20you%20share%20more%20details%3F"
+              target="_blank"
+              rel="noopener"
+              class="btn btn-whatsapp"
+            >
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"
+                />
+              </svg>
+              WhatsApp Us
+            </a>
+            <a
+              href="mailto:contact@eduzen.com?subject=Enquiry%20about%20Eduzen%20Tutoring&body=Hi%2C%0A%0AI%27m%20interested%20in%20learning%20more%20about%20Eduzen%20tutoring.%0A%0AStudent%27s%20grade%3A%20%0ASubjects%20of%20interest%3A%20%0A%0AThank%20you!"
+              class="btn btn-email"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+                />
+                <polyline points="22,6 12,13 2,6" />
+              </svg>
+              Email Us
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── Footer ─── -->
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div class="footer-brand">
+          <img src="eduzen_logo.png" alt="Eduzen" />
+          <p>&copy; 2026 Eduzen Institution. All rights reserved.</p>
+        </div>
+        <div class="footer-links">
+          <a href="#subjects">Subjects</a>
+          <a href="#why-us">Why Us</a>
+          <a href="#about">About</a>
+          <a href="#classroom">Classroom</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Mobile menu toggle
+      const toggle = document.getElementById("navToggle");
+      const links = document.getElementById("navLinks");
+      toggle.addEventListener("click", () => {
+        links.classList.toggle("open");
+        toggle.classList.toggle("active");
+      });
+      // Close menu on link click
+      links.querySelectorAll("a").forEach((a) => {
+        a.addEventListener("click", () => {
+          links.classList.remove("open");
+          toggle.classList.remove("active");
+        });
+      });
+      // Navbar scroll effect
+      window.addEventListener("scroll", () => {
+        document
+          .getElementById("navbar")
+          .classList.toggle("scrolled", window.scrollY > 40);
+      });
+    </script>
+  </body>
+</html>
