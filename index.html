@@ -1094,6 +1094,11 @@
       .portrait-frame:hover {
         transform: rotate(0);
       }
+      .portrait-img {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
 
       .portrait-meta {
         margin-top: 28px;
@@ -1140,38 +1145,46 @@
       }
 
       .educator-credentials {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 0;
         margin-top: 40px;
+        padding-top: 32px;
         border-top: 1px solid var(--line);
-        border-left: 1px solid var(--line);
       }
-      .cred {
-        padding: 26px 24px;
-        border-right: 1px solid var(--line);
-        border-bottom: 1px solid var(--line);
-        background: var(--white);
-      }
-      .cred-year {
-        display: block;
+      .creds-heading {
         font-family: var(--font-serif);
-        font-size: 2.2rem;
-        color: var(--copper);
-        line-height: 1;
-        margin-bottom: 12px;
+        font-size: 1.35rem;
         font-weight: 600;
+        color: var(--navy);
+        margin-bottom: 22px;
+        line-height: 1.3;
       }
-      .cred-text {
-        font-size: 0.82rem;
+      .creds-num {
+        color: var(--copper);
+        font-style: italic;
+      }
+      .creds-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      .creds-list li {
+        position: relative;
+        padding: 12px 0 12px 28px;
+        font-size: 0.95rem;
         color: var(--text);
-        line-height: 1.5;
+        line-height: 1.55;
+        border-bottom: 1px solid var(--line);
       }
-      .cred-text em {
-        display: block;
-        color: var(--text-m);
-        margin-top: 2px;
-        font-size: 0.76rem;
+      .creds-list li:last-child {
+        border-bottom: none;
+      }
+      .creds-list li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 22px;
+        width: 16px;
+        height: 1px;
+        background: var(--copper);
       }
 
       /* ─── Worksheets ─── */
@@ -1892,8 +1905,15 @@
           transform: none;
         }
 
-        .educator-credentials {
-          grid-template-columns: 1fr;
+        .creds-heading {
+          font-size: 1.15rem;
+        }
+        .creds-list li {
+          font-size: 0.9rem;
+          padding-left: 22px;
+        }
+        .creds-list li::before {
+          width: 12px;
         }
 
         .footer-inner {
@@ -2093,7 +2113,7 @@
     <header class="hero" id="hero">
       <div class="container hero-grid">
         <div class="hero-text">
-          <p class="eyebrow">Global Academic Enrichment Program</p>
+          <!-- <p class="eyebrow">Global Academic Enrichment Program</p> -->
           <h1>
             Unlock your child's
             <em class="accent-serif">full potential</em>
@@ -2269,7 +2289,7 @@
             </ul>
             <div class="subject-foot">
               <a
-                href="worksheets/science.pdf"
+                href="worksheets/biology.pdf"
                 target="_blank"
                 rel="noopener"
                 class="subject-ws"
@@ -2630,24 +2650,15 @@
       <div class="container educator-grid">
         <aside class="educator-portrait">
           <div class="portrait-frame" data-img="portrait">
-            <div class="img-placeholder img-placeholder-portrait">
-              <svg
-                viewBox="0 0 64 64"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.3"
-              >
-                <circle cx="32" cy="24" r="10" />
-                <path d="M14 56c0-10 8-18 18-18s18 8 18 18" />
-              </svg>
-              <span>Portrait of<br />the educator</span>
-            </div>
+            <img
+              src="images/founder-portrait.jpeg"
+              alt="Founder & Head Educator of Eduzen"
+              class="portrait-img"
+            />
           </div>
           <div class="portrait-meta">
-            <span class="meta-name">Founder &amp; Head Educator</span>
-            <span class="meta-role"
-              >Former Level Head (India) · Cambridge Curriculum</span
-            >
+            <span class="meta-name">Mrs. Rashmi Sharma</span>
+            <span class="meta-role">Founder &amp; Head Educator</span>
           </div>
         </aside>
 
@@ -2658,46 +2669,49 @@
             <em class="accent-serif">one student at a time.</em>
           </h2>
           <p>
-            With over
-            <strong>22 years of dedicated teaching experience</strong>, the
-            founder of Eduzen brings a rare combination of depth and breadth to
-            every lesson. Having served as a
-            <strong>Level Head in India</strong> and taught extensively within
-            the <strong>Cambridge Curriculum</strong>, they understand what it
-            takes to help students excel — regardless of the board or country.
+            In 2010, the Government of India conferred upon me the State Best
+            Teacher Award at New Delhi, presented by Hon’ble Chief Minister Smt.
+            Sheila Dikshit — a testament to classroom impact that changed lives.
           </p>
           <p>
+            My Singapore journey began at the grassroots — as a part-time Hindi
+            teacher in local schools, after completing training with the
+            Ministry of Education (MOE). From teaching Hindi to mastering
+            international curricula, I earned my CICTL and brought Indian
+            pedagogical depth to Singapore’s IB & IGCSE landscape. From
+            chalkboards to smart classrooms, my core stayed constant:
+            students-first.
+          </p>
+          <p>
+            With over
+            <strong>22 years of dedicated teaching experience</strong>, I bring
+            a rare combination of depth and breadth to every lesson. Having
+            served as a <strong>Level Head in India</strong> and taught
+            extensively within the <strong>Cambridge Curriculum</strong>, I
+            understand what it takes to help students excel — regardless of the
+            board or country.
+          </p>
+          <!-- <p>
             At Eduzen, every student receives a learning plan shaped around
             their strengths, gaps, and goals. Whether preparing for board exams,
             entrance tests, or simply building a stronger foundation, we meet
             each learner exactly where they are.
-          </p>
+          </p> -->
 
           <div class="educator-credentials">
-            <div class="cred">
-              <span class="cred-year">2010</span>
-              <span class="cred-text"
-                >Best Teacher Award<br /><em
-                  >Government of India · New Delhi</em
-                ></span
-              >
-            </div>
-            <div class="cred">
-              <span class="cred-year">15+</span>
-              <span class="cred-text"
-                >Years across<br /><em
-                  >IB · IGCSE · Cambridge curricula</em
-                ></span
-              >
-            </div>
-            <div class="cred">
-              <span class="cred-year">Level<br />Head</span>
-              <span class="cred-text"
-                >Former Level Head (India)<br /><em
-                  >Cambridge Curriculum</em
-                ></span
-              >
-            </div>
+            <h3 class="creds-heading">
+              <span class="creds-num">22 Years</span> of Academic &amp;
+              Professional Excellence
+            </h3>
+            <ul class="creds-list">
+              <li>B.Sc., B.Ed., M.A. English, M.Ed.</li>
+              <li>CTET &amp; IELTS Qualified</li>
+              <li>Hindi Teaching &amp; Learning Training by MOE Singapore</li>
+              <li>
+                CICTL Singapore — Cambridge International Certificate in
+                Teaching &amp; Learning
+              </li>
+            </ul>
           </div>
         </div>
       </div>
@@ -2783,7 +2797,7 @@
                   d="M22 16.92v3a2 2 0 0 1-2.18 2 19.86 19.86 0 0 1-8.63-3.07A19.5 19.5 0 0 1 5.15 12.8 19.86 19.86 0 0 1 2.08 4.18 2 2 0 0 1 4.06 2h3a2 2 0 0 1 2 1.72c.13.81.36 1.6.68 2.34a2 2 0 0 1-.45 2.11L8.09 9.4a16 16 0 0 0 6.51 6.51l1.23-1.23a2 2 0 0 1 2.11-.45c.74.32 1.53.55 2.34.68a2 2 0 0 1 1.72 2.01z"
                 />
               </svg>
-              <a href="tel:+919810448905">+91 98104 48905</a>
+              <a href="tel:+919876748905">+91 98767 48905</a>
             </li>
             <li>
               <svg
@@ -2820,7 +2834,7 @@
                 <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1 1 18 0z" />
                 <circle cx="12" cy="10" r="3" />
               </svg>
-              <span>Online &amp; in-person — worldwide</span>
+              <span>Online — worldwide</span>
             </li>
           </ul>
         </div>
